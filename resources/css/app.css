@@ -1,0 +1,45 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: "Value";
+  src: url("../fonts/value-serif-bold.woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Apercu";
+  src: url("../fonts/apercu-light-pro.woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Apercu";
+  src: url("../fonts/apercu-regular-pro.woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Apercu";
+  src: url("../fonts/apercu-medium-pro.woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Apercu";
+  src: url("../fonts/apercu-bold-pro.woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/space-mono-bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/space-mono-regular.ttf");
+  font-weight: normal;
+}
