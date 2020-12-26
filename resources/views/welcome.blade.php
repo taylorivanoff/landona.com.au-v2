@@ -12,7 +12,7 @@
                             we're here to help make residential property simple.
                         </div>
                         <div class="space-y-2 lg:space-x-4">
-                            <a href="tel:+(02)89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
+                            <a href="tel:(02)89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
                                 Get started
                             </a>
                             <a href="#services" class="bg-white inline-flex items-center px-10 py-2 text-lg  border-2 border-transparent border-indigo-300 rounded-full text-indigo-600 hover:bg-indigo-600 hover:text-white hover:border-transparent focus:ring ring-indigo-300 active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150 font-medium">
@@ -179,7 +179,7 @@
                     <div class="lg:text-lg">
                         Found that property? We'll make it easy.
                     </div>
-                    <a href="tel:+(02)89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
+                    <a href="tel:(02)89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
                         Contact us
                     </a>
                 </div>
