@@ -5,9 +5,14 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
+
                     <a href="{{ route('home') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-900 hover:text-indigo-600" />
+                        
                     </a>
+                    <div class="font-bold tracking-tight text-sm ml-3">
+                            Landona Conveyancing
+                        </div>
                 </div>
 
                 <!-- Navigation Links -->
