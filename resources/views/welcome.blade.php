@@ -3,7 +3,7 @@
         <div class="pt-32 pb-20">
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 text-center lg:text-left">
-                    <div class="space-y-8 lg:pt-60 lg:w-9/12">
+                    <div class="space-y-8 pt-12 lg:pt-60 lg:w-9/12">
                         <div class="font-serif text-3xl md:text-6xl text-gray-900 leading-none">
                             Conveyancing, <br>made easy.
                         </div>
@@ -11,9 +11,9 @@
                             Whether you're moving into another suburb, buying your first home or expanding your investment portfolio,
                             we're here to help make residential property simple.
                         </div>
-                        <div class="space-y-2 lg:space-x-4">
-                            <a href="tel:(02)89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
-                                Get started
+                        <div class="space-y-4 lg:space-x-5">
+                            <a href="tel:89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
+                                Call us
                             </a>
                             <a href="#services" class="bg-white inline-flex items-center px-10 py-2 text-lg  border-2 border-transparent border-indigo-300 rounded-full text-indigo-600 hover:bg-indigo-600 hover:text-white hover:border-transparent focus:ring ring-indigo-300 active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150 font-medium">
                                 Learn more
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="py-20">
+        <div class="py-20 mt-20" id="testimonials">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center space-y-7">
                     <div class="font-serif text-2xl md:text-4xl text-gray-900 leading-none">
@@ -40,13 +40,13 @@
                         Join more than 1,000 clients who've entrusted us to handle their residential property matters.
                     </div>
                     <div>
-                        <iframe id="testimonials" src="https://www.google.com/maps/d/embed?mid=1wiSfjrr_Hu3UYsi3RmKo59bNsIkCGpuP" class="w-full" height="600" frameborder="0" style="border:0"></iframe>
+                        <iframe  src="https://www.google.com/maps/d/embed?mid=1wiSfjrr_Hu3UYsi3RmKo59bNsIkCGpuP" class="w-full" height="600" frameborder="0" style="border:0"></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="py-20">
+        <div class="py-20" id="services">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center space-y-7">
                     <div class="font-serif text-2xl md:text-4xl text-gray-900 leading-none">
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div class="py-12" id="services">
+        <div class="py-12" >
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 text-center lg:text-left lg:py-32">
                     <div class="w-7/12 lg:block hidden">
@@ -166,25 +166,61 @@
         </div>
     </div>
 
-    <div class="py-12 px-8 bg-blue-900 mt-32 text-white" id="get-started">
+    <div class="py-12 px-8 bg-blue-900 mt-32 text-white">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-1 text-center py-24">
                 <div class="space-y-6">
                     <div class="font-mono text-gray-500 tracking-wide uppercase text-xs font-bold">
                         Let's get started
                     </div>
-                    <div class="font-serif text-3xl md:text-5xl  leading-none">
+                    <div class="font-serif text-2xl md:text-4xl leading-none">
                         Ready to get started?
                     </div>
                     <div class="lg:text-lg">
-                        Found that property? We'll make it easy.
+                        We'll make it easy.
                     </div>
-                    <a href="tel:(02)89014705" class="bg-indigo-600 inline-flex items-center px-10 py-2 text-lg border border-transparent rounded-full text-white hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150 font-medium">
-                        Contact us
-                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="contact" class="">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:text-left py-24">
+                    <div class="font-mono text-center py-2 text-gray-500 tracking-wide uppercase text-xs font-bold">
+                        Get in touch
+                    </div>
+                     <div class="font-serif text-center py-2 text-2xl md:text-4xl leading-none mb-4">
+                        Contact us
+                    </div>
+                    <table class="table-auto mx-auto lg:text-lg">
+                        <tr>
+                          <td class="px-6 py-2">e-mail.</td>
+                          <td class="px-6 py-2"><a href="mailto:tina@landona.com.au" class="text-indigo-600">tina@landona.com.au</a></td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-2">office.</td>
+                          <td class="px-6 py-2"><a href="tel:89014705" class="text-indigo-600">8901 4705</a></td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-2">mobile.</td>
+                          <td class="px-6 py-2"><a href="tel:0412585884" class="text-indigo-600">0412 585 884</a></td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-2">fax.</td>
+                          <td class="px-6 py-2"><a href="fax:80886751" class="text-indigo-600">8088 6751</a></td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-2">office address.</td>
+                          <td class="px-6 py-2"><a href="https://www.google.com/maps/place/Landona+Conveyancing+Pty+Ltd,+Larool+Avenue,+Lindfield+NSW/@-33.7884922,151.1752785,15z/data=!4m5!3m4!1s0x6b12a8c76a5d3aa5:0x75e41922e44947cb!8m2!3d-33.7820897!4d151.1648564" class="text-indigo-600">14 Larool Avenue, Lindfield NSW 2070</a></td>
+                        </tr>
+                        <tr>
+                          <td class="px-6 py-2">p.o. box.</td>
+                          <td class="px-6 py-2">367, Lindfield NSW 2070</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 </x-app-layout>

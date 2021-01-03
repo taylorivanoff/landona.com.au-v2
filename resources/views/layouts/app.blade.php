@@ -33,7 +33,7 @@
             </main>
 
             <!-- Page Footer -->
-            <footer class="bg-white shadow text-gray-500">
+            <footer class="bg-white text-gray-500">
                 <div class="mx-auto px-4 sm:px-6 lg:px-8 py-10 tracking-tight">
                     <div class="max-w-6xl mx-auto">
                         <div class="text-xs align-middle inline-block">©{{ now()->year }} Landona Conveyancing Pty. Ltd. License No.: 05006589</div>

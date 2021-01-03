@@ -5,14 +5,12 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-
                     <a href="{{ route('home') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-900 hover:text-indigo-600" />
-                        
                     </a>
                     <div class="font-bold tracking-tight text-sm ml-3">
-                            Landona Conveyancing
-                        </div>
+                        Landona Conveyancing
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
@@ -23,7 +21,7 @@
                     <x-nav-link href="#services">
                         Services
                     </x-nav-link>
-                    <x-nav-link href="#get-started">
+                    <x-nav-link href="#contact">
                         Contact
                     </x-nav-link>
                 </div>
@@ -82,7 +80,7 @@
             <x-responsive-nav-link href="#services">
                 Services
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#get-started">
+            <x-responsive-nav-link href="#contact">
                 Contact
             </x-responsive-nav-link>
         </div>
