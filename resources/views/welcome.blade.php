@@ -34,7 +34,7 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center space-y-7">
                     <div class="font-serif text-2xl md:text-4xl text-gray-900 leading-none">
-                        1,064 residential properties settled and counting
+                        1,100+ residential properties settled and counting
                     </div>
                     <div class="lg:text-lg text-gray-600">
                         Join more than 1,000 clients who've entrusted us to handle their residential property matters.
@@ -112,7 +112,7 @@
                             We'll also review the Strata report of a property, and provide the financial history, future expenditure and current financial position of a Strata corporation. We’ll make you aware of by-laws and potential changes to help protect your rights.
                         </div>
                         <div class="lg:text-lg text-gray-600">
-                            Off the plan property, you’re buying the concept of a building or apartment, so having a licensed conveyancer detail through the Contract is critical to ensuring that you're protected even before construction is finished. 
+                            Off the plan property, you’re buying the concept of a building or apartment, so having a licensed conveyancer detail through the Contract is critical to ensuring that you're protected even before construction is finished.
                         </div>
                     </div>
 
