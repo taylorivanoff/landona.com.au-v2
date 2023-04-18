@@ -205,12 +205,8 @@
                           <td class="px-6 py-2"><a href="mailto:tina@landona.com.au" class="text-indigo-600">tina@landona.com.au</a></td>
                         </tr>
                         <tr>
-                          <td class="px-6 py-2">office.</td>
-                          <td class="px-6 py-2"><a href="tel:89014705" class="text-indigo-600">8901 4705</a></td>
-                        </tr>
-                        <tr>
-                          <td class="px-6 py-2">mobile.</td>
-                          <td class="px-6 py-2"><a href="tel:0412585884" class="text-indigo-600">0412 585 884</a></td>
+                          <td class="px-6 py-2">phone.</td>
+                            <td class="px-6 py-2"><a href="tel:0412585884" class="text-indigo-600">0412 585 884</a></td>
                         </tr>
                         <tr>
                           <td class="px-6 py-2">fax.</td>
