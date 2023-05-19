@@ -33,3 +33,7 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www/
 
 USER $user
+
+RUN mkdir /var/www/vendor
+
+RUN composer install -o
