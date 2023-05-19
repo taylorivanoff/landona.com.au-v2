@@ -34,4 +34,10 @@ WORKDIR /var/www
 
 USER $user
 
-RUN composer install -o
+# Print PHP version
+RUN php -v
+
+# Install dependencies with composer
+RUN composer install --no-progress > /dev/null
+
+COPY . .
