@@ -8,8 +8,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./:/var/www
-    networks:
-      - nginx-proxy
     environment:
       - VIRTUAL_HOST=landona.com.au
       - LETSENCRYPT_HOST=landona.com.au
