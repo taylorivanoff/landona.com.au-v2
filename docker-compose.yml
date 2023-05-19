@@ -12,9 +12,7 @@ services:
       - nginx-proxy
     environment:
       - VIRTUAL_HOST=landona.com.au
-      - VIRTUAL_PORT=9000
       - LETSENCRYPT_HOST=landona.com.au
-      - LETSENCRYPT_EMAIL=taylorivanoff@gmail.com
     expose:
       - "80"
 
