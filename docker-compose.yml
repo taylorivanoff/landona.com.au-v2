@@ -10,7 +10,7 @@ services:
     container_name: landona-app
     restart: unless-stopped
     volumes:
-      - ./:/usr/share/nginx/html:ro
+      - ./:/var/www
     networks:
       - nginx-proxy
     environment:
