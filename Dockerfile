@@ -1,37 +1,16 @@
-FROM php:8.2-fpm
+FROM alpine:3.18
 
-# Arguments defined in docker-compose.yml
-ARG user=build-user
-ARG uid=1000
+LABEL "Maintainer"="Scott Hansen <tech@firecat53.net>"
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip
+RUN apk add --no-cache php81-fpm php81-gd php81-iconv php81-json php81-opcache
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+WORKDIR /var/www
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+ADD etc/ /etc/
 
-# Get latest Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+USER nobody
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
+# mark dirs as volumes that need to be writable, allows running the container --read-only
+VOLUME ["/tmp"]
 
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
-
-# Set working directory
-WORKDIR /var/www/
-
-RUN mkdir /var/www/vendor
-
-USER $user
+ENTRYPOINT ["/usr/sbin/php-fpm81"]
