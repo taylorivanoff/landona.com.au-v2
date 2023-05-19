@@ -1,9 +1,6 @@
 services:
   app:
     build:
-      args:
-        user: taylor
-        uid: 1000
       context: ./
       dockerfile: Dockerfile
     image: landona
