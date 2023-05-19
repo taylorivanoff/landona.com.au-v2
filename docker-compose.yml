@@ -1,9 +1,6 @@
 services:
   app:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    image: landona
+    image: php:8.2-fpm
     container_name: landona-app
     restart: unless-stopped
     volumes:
