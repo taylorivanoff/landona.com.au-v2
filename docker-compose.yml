@@ -14,7 +14,7 @@ services:
     volumes:
       - ./:/var/www
     networks:
-      - landona
+      - nginx-proxy
     environment:
       VIRTUAL_HOST: landona.com.au
       VIRTUAL_PORT: 3000
@@ -22,6 +22,3 @@ services:
       LETSENCRYPT_EMAIL: taylorivanoff@gmail.com
     expose:
       - 3000
-networks:
-  nginx-proxy:
-    external: true
