@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   app:
     build:
@@ -21,7 +20,7 @@ services:
       LETSENCRYPT_HOST: landona.com.au
       LETSENCRYPT_EMAIL: taylorivanoff@gmail.com
     ports:
-      - '3001:80'
+      - '3001:3001'
 
 networks:
   nginx-proxy:
