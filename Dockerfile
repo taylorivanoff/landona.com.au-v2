@@ -30,14 +30,6 @@ RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/
 
 USER $user
-
-# Print PHP version
-RUN php -v
-
-# Install dependencies with composer
-RUN composer install --no-progress > /dev/null
-
-COPY . .
