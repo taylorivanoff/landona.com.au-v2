@@ -15,9 +15,10 @@ services:
     networks:
       - proxy
     environment:
-      VIRTUAL_HOST: landona.com.au
-      LETSENCRYPT_HOST: landona.com.au
-      LETSENCRYPT_EMAIL: taylorivanoff@gmail.com
+      - VIRTUAL_HOST=landona.com.au
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=landona.com.au
+      - LETSENCRYPT_EMAIL=taylorivanoff@gmail.com
     expose:
       - "80"
 
