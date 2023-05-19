@@ -23,6 +23,5 @@ services:
     expose:
       - 3000
 networks:
-  default:
-    external:
-      name: nginx-proxy
+  nginx-proxy:
+    external: true
