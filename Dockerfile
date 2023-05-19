@@ -34,7 +34,6 @@ WORKDIR /var/www/
 
 RUN mkdir /var/www/vendor
 
-RUN composer install -o
-
 USER $user
 
+RUN composer install -o
