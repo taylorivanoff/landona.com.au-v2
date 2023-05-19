@@ -20,8 +20,8 @@ services:
       VIRTUAL_PORT: 3001
       LETSENCRYPT_HOST: landona.com.au
       LETSENCRYPT_EMAIL: taylorivanoff@gmail.com
-    expose:
-      - 3001
+    ports:
+      - '3001:80'
 
 networks:
   nginx-proxy:
