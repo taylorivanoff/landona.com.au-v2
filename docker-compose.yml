@@ -15,7 +15,14 @@ services:
       - ./:/var/www
     networks:
       - landona
-
+    environment:
+      VIRTUAL_HOST: landona.com.au
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: landona.com.au
+      LETSENCRYPT_EMAIL: taylorivanoff@gmail.com
+    expose:
+      - 3000
 networks:
-  landona:
-    driver: bridge
+  default:
+    external:
+      name: nginx-proxy
