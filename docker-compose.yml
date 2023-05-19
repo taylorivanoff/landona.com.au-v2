@@ -1,6 +1,6 @@
 services:
   app:
-    image: php:8.2-fpm
+    image: landona
     container_name: landona-app
     restart: unless-stopped
     volumes:
@@ -9,4 +9,4 @@ services:
       - VIRTUAL_HOST=landona.com.au
       - LETSENCRYPT_HOST=landona.com.au
     expose:
-      - "9000"
+      - "80"
