@@ -17,11 +17,11 @@ services:
       - nginx-proxy
     environment:
       VIRTUAL_HOST: landona.com.au
-      VIRTUAL_PORT: 3000
+      VIRTUAL_PORT: 3001
       LETSENCRYPT_HOST: landona.com.au
       LETSENCRYPT_EMAIL: taylorivanoff@gmail.com
     expose:
-      - 3000
+      - 3001
 
 networks:
   nginx-proxy:
