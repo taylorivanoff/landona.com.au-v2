@@ -15,7 +15,3 @@ services:
       - LETSENCRYPT_HOST=landona.com.au
     expose:
       - "80"
-
-networks:
-  nginx-proxy:
-    external: true
