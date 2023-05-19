@@ -9,9 +9,8 @@ services:
     image: landona
     container_name: landona-app
     restart: unless-stopped
-    working_dir: /var/www/
     volumes:
-      - ./:/var/www
+      - ./:/usr/share/nginx/html:ro
     networks:
       - proxy
     environment:
