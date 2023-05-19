@@ -12,7 +12,7 @@ services:
     volumes:
       - ./:/usr/share/nginx/html:ro
     networks:
-      - proxy
+      - nginx-proxy
     environment:
       - VIRTUAL_HOST=landona.com.au
       - VIRTUAL_PORT=80
