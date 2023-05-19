@@ -1,12 +1,10 @@
+version: '2'
+
 services:
-  app:
-    image: landona
-    container_name: landona-app
-    restart: unless-stopped
+  php:
+    tty: true # Enables debugging capabilities when attached to this container.
+    image: docker.io/bitnami/php-fpm:8.2
+    ports:
+      - 9000:9000
     volumes:
-      - ./:/var/www
-    environment:
-      - VIRTUAL_HOST=landona.com.au
-      - LETSENCRYPT_HOST=landona.com.au
-    expose:
-      - "80"
+      - .:/app
