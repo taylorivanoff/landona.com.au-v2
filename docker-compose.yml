@@ -12,4 +12,4 @@ services:
       - VIRTUAL_HOST=landona.com.au
       - LETSENCRYPT_HOST=landona.com.au
     expose:
-      - "80"
+      - "9000"
