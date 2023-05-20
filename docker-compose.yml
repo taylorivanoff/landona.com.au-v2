@@ -24,7 +24,7 @@ services:
     networks:
       - nginx-reverse-proxy
     environment:
-      VIRTUAL_PORT: 81
+      VIRTUAL_PORT: 80
       VIRTUAL_HOST: landona.com.au
       LETSENCRYPT_HOST: landona.com.au
 
