@@ -16,15 +16,13 @@ services:
     image: nginx:alpine
     container_name: landona-nginx
     restart: unless-stopped
-    ports:
-      - "81:81"
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
       - nginx-reverse-proxy
     environment:
-      VIRTUAL_PORT: 81
+      VIRTUAL_PORT: 8585
       VIRTUAL_HOST: landona.com.au
       LETSENCRYPT_HOST: landona.com.au
 
