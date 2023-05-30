@@ -18,7 +18,7 @@ services:
     container_name: landona-nginx
     restart: unless-stopped
     ports:
-      - 4001:80
+      - 4001:81
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
