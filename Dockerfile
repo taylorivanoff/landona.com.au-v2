@@ -2,7 +2,7 @@ FROM php:8.2-fpm
 
 # Arguments defined in docker-compose.yml
 ARG user=taylor
-ARG uid=1001
+ARG uid=1000
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
