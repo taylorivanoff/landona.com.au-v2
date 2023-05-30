@@ -15,8 +15,7 @@ services:
     image: nginx:alpine
     container_name: landona-nginx
     restart: unless-stopped
-    ports:
-      - 4000:80
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
+    network_mode: bridge
