@@ -1,6 +1,5 @@
 version: "3.7"
 services:
-
   app:
     build:
       context: ./
@@ -16,8 +15,12 @@ services:
     image: nginx:alpine
     container_name: landona-nginx
     restart: unless-stopped
-    ports:
-      - "8080:8080"
     volumes:
       - ./:/var/www
-      - ./nginx.conf:/etc/nginx/conf.d/app.conf
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
