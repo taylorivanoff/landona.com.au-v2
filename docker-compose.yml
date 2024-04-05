@@ -17,7 +17,7 @@ services:
     container_name: landona-nginx
     restart: unless-stopped
     ports:
-      - "8081:80"
+      - "8080:80"
     volumes:
       - ./:/var/www
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
