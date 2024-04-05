@@ -32,6 +32,7 @@ COPY . /var/www
 EXPOSE 9000
 CMD ["php-fpm"]
 
+RUN rm -rf storage
 RUN chown -R www-data:www-data storage
 RUN php artisan cache:clear
 RUN php artisan view:clear
