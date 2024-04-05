@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
 
 # Install GD extension
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+RUN docker-php-ext-configure gd --with-freetype \
   && docker-php-ext-install gd pdo_mysql
 
 # Switch to the newly created user
