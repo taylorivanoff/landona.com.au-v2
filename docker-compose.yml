@@ -20,4 +20,4 @@ services:
       - "8081:80"
     volumes:
       - ./:/var/www
-      - ./nginx.conf:/etc/nginx/conf.d/
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
