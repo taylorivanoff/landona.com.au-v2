@@ -8,20 +8,13 @@ services:
     restart: unless-stopped
     volumes:
       - .:/var/www/html
-    networks:
-      - landona
 
   nginx:
     image: nginx:alpine
     container_name: landona-nginx
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "8091:80"
     volumes:
       - .:/var/www/html
       - ./docker/nginx:/etc/nginx/conf.d
-    networks:
-      - landona
-networks:
-  landona:
-    driver: bridge
