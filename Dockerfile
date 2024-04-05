@@ -24,13 +24,10 @@ COPY composer.lock composer.json /var/www/
 
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-autoloader
+RUN chown -R www-data:www-data storage
 
 # Copy existing application directory contents to the working directory
 COPY . /var/www
-
-# Set proper permissions for Laravel storage directory
-RUN chown -R www-data:www-data storage \
-    chown -R 775 storage
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
