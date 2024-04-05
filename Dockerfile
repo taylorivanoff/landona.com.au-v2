@@ -1,8 +1,6 @@
 # Use an official PHP runtime as a base image
 FROM php:8.2-fpm
 
-USER 1001:1001
-
 # Set the working directory in the container
 WORKDIR /var/www
 
@@ -40,6 +38,8 @@ RUN composer install --no-scripts --no-autoloader
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
+
+USER 1001:1001
 
 RUN php artisan view:clear
 RUN php artisan config:clear
