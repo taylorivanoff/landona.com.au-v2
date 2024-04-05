@@ -43,7 +43,7 @@ COPY --chown=laravel:laravel composer.lock composer.json /var/www/
 COPY --chown=laravel:laravel . /var/www
 
 # Install Laravel dependencies
-RUN composer install --no-scripts --no-autoloader
+RUN sudo composer install --no-scripts --no-autoloader
 
 # Set proper permissions for Laravel storage directory
 RUN chown -R laravel:laravel storage
