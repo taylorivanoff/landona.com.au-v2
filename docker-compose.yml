@@ -19,3 +19,5 @@ services:
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
+    ports:
+      - "8080:80"
