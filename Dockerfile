@@ -1,52 +1,39 @@
-# Use a slim PHP image optimized for production
-FROM php:8.2-fpm-alpine
+# Use an official PHP runtime as a base image
+FROM php:8.2-fpm
 
-# Install system dependencies
-RUN apk --no-cache add \
-    git \
-    curl \
-    libpng \
-    libpng-dev \
-    libjpeg \
-    libjpeg-turbo-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    oniguruma-dev # Install Oniguruma library and its development headers
-
-# Install PHP extensions
-RUN docker-php-ext-configure gd --with-jpeg && \
-    docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
-# Get latest Composer
-COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
-
-# Create a non-root user
-ARG user=taylor
-ARG uid=1001
-RUN adduser --disabled-password --gecos '' $user --uid $uid
-
-# Set working directory
+# Set the working directory in the container
 WORKDIR /var/www
 
-# Change ownership of working directory to the non-root user
-RUN chown -R $user:$user /var/www
+# Copy composer.lock and composer.json
+COPY composer.lock composer.json /var/www/
 
-# Switch to the non-root user
-USER $user
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    zip \
+    unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo_mysql
 
-# Copy only the necessary files
-COPY --chown=$user:$user . /var/www
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Optimize Laravel for production
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Copy existing application directory contents to the working directory
+COPY . /var/www
 
-# Set proper permissions
-RUN chmod -R 755 storage && \
-    chmod -R 755 bootstrap/cache
+# Install Laravel dependencies
+RUN composer install --no-scripts --no-autoloader
 
-# Expose port 9000 to communicate with Nginx
+# Copy the existing Laravel application directory permissions
+COPY --chown=www-data:www-data . /var/www
+
+# Generate artisan key
+RUN php artisan key:generate
+
+# Expose port 9000 and start php-fpm server
 EXPOSE 9000
-
-# Start PHP-FPM
 CMD ["php-fpm"]
