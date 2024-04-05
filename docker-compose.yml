@@ -4,17 +4,24 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: landona-app
+    container_name: laravel-app
     restart: unless-stopped
     volumes:
       - .:/var/www/html
+    networks:
+      - laravel
 
   nginx:
     image: nginx:alpine
-    container_name: landona-nginx
+    container_name: laravel-nginx
     restart: unless-stopped
     ports:
-      - "8091:80"
+      - "8080:80"  # Change host port to 8080
     volumes:
       - .:/var/www/html
       - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - laravel
+networks:
+  laravel:
+    driver: bridge
