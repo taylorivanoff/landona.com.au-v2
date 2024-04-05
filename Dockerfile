@@ -40,3 +40,4 @@ EXPOSE 9000
 CMD ["php-fpm"]
 
 RUN php artisan view:clear
+RUN php artisan config:clear
