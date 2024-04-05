@@ -28,11 +28,14 @@ RUN composer install --no-scripts --no-autoloader
 # Copy existing application directory contents to the working directory
 COPY . /var/www
 
-# Set proper permissions
-RUN chown -R www-data:www-data /var/www && \
-    chmod -R 755 /var/www/storage && \
-    chmod -R 755 /var/www/bootstrap/cache
+# Set proper permissions for Laravel storage directory
+RUN chown -R www-data:www-data storage \
+    chmod -R 775 storage
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
+
+RUN php artisan cache:clear \
+    php artisan view:clear \
+    composer dump-autoload
