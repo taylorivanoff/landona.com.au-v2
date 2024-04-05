@@ -35,8 +35,6 @@ COPY . /var/www
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-autoloader
 
-USER 1001:1001
-
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
