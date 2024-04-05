@@ -1,35 +1,51 @@
-FROM php:8.2-fpm
-
-# Arguments defined in docker-compose.yml
-ARG user=taylor
-ARG uid=1001
+# Use a slim PHP image optimized for production
+FROM php:8.2-fpm-alpine
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apk --no-cache add \
     git \
     curl \
+    libpng \
     libpng-dev \
-    libonig-dev \
+    libjpeg \
+    libjpeg-turbo-dev \
     libxml2-dev \
     zip \
     unzip
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+RUN docker-php-ext-configure gd --with-jpeg && \
+    docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Get latest Composer
 COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
+# Create a non-root user
+ARG user=taylor
+ARG uid=1001
+RUN adduser --disabled-password --gecos '' $user --uid $uid
 
 # Set working directory
 WORKDIR /var/www
 
+# Change ownership of working directory to the non-root user
+RUN chown -R $user:$user /var/www
+
+# Switch to the non-root user
 USER $user
+
+# Copy only the necessary files
+COPY --chown=$user:$user . /var/www
+
+# Optimize Laravel for production
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Set proper permissions
+RUN chmod -R 755 storage && \
+    chmod -R 755 bootstrap/cache
+
+# Expose port 9000 to communicate with Nginx
+EXPOSE 9000
+
+# Start PHP-FPM
+CMD ["php-fpm"]
