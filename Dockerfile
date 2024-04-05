@@ -39,6 +39,6 @@ RUN composer install --no-scripts --no-autoloader
 EXPOSE 9000
 CMD ["php-fpm"]
 
-RUN php artisan generate:key
+RUN php artisan key:generate
 RUN php artisan make:cache-table
 RUN php artisan migrate
