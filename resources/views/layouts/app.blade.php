@@ -8,11 +8,11 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
-    <link rel="icon" type="image/png" href="{{ secure_asset('favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     <!-- Scripts -->
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src=https://www.googletagmanager.com/gtag/js?id=G-ZXLK437JYZ></script>
