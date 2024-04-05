@@ -11,7 +11,8 @@ RUN apk --no-cache add \
     libjpeg-turbo-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip \
+    oniguruma-dev # Install Oniguruma library and its development headers
 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-jpeg && \
