@@ -31,9 +31,9 @@ RUN composer install --no-scripts --no-autoloader
 # Copy the existing Laravel application directory permissions
 COPY --chown=www-data:www-data . /var/www
 
-# Generate artisan key
-RUN php artisan key:generate
-
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
+
+# Generate artisan key
+RUN php artisan key:generate
