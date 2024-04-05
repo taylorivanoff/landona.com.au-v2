@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/var/www/html
     networks:
-      - laravel
+      - landona
 
   nginx:
     image: nginx:alpine
@@ -21,7 +21,7 @@ services:
       - .:/var/www/html
       - ./docker/nginx:/etc/nginx/conf.d
     networks:
-      - laravel
+      - landona
 networks:
   landona:
     driver: bridge
