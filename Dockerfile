@@ -30,7 +30,7 @@ COPY . /var/www
 
 # Set proper permissions for Laravel storage directory
 RUN chown -R www-data:www-data storage \
-    chmod -R 775 storage
+    chown -R 775 storage
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
