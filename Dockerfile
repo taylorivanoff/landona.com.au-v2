@@ -17,7 +17,7 @@ RUN usermod -aG sudo laravel
 RUN echo "laravel ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/laravel
 
 # Install required packages
-RUN sudo apt-get update && sudo apt-get install -y \
+RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpng-dev \
@@ -25,14 +25,16 @@ RUN sudo apt-get update && sudo apt-get install -y \
     libfreetype6-dev \
     zip \
     unzip \
-    && sudo docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && sudo docker-php-ext-install gd pdo_mysql
 
-# Install Composer
-RUN sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+# Install GD extension
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+  && docker-php-ext-install gd pdo_mysql
 
 # Switch to the newly created user
 USER laravel
+
+# Install Composer
+RUN sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy composer.lock and composer.json
 COPY --chown=laravel:laravel composer.lock composer.json /var/www/
