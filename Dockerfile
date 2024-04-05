@@ -24,11 +24,13 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     zip \
-    unzip \
+    unzip
 
-# Install GD extension
-RUN docker-php-ext-configure gd --with-freetype \
-  && docker-php-ext-install gd pdo_mysql
+# Configure GD extension with FreeType support
+RUN docker-php-ext-configure gd --with-freetype
+
+# Install GD and pdo_mysql extensions
+RUN docker-php-ext-install gd pdo_mysql
 
 # Switch to the newly created user
 USER laravel
