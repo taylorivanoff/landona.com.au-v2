@@ -16,6 +16,8 @@ services:
     image: nginx:alpine
     container_name: landona-nginx
     restart: unless-stopped
+    ports:
+      - "8080:8080"
     volumes:
       - ./:/var/www
       - ./nginx.conf:/etc/nginx/conf.d/app.conf
