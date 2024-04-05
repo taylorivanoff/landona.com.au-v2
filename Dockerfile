@@ -1,6 +1,8 @@
 # Use an official PHP runtime as a base image
 FROM php:8.2-fpm
 
+USER 1001:1001
+
 # Set the working directory in the container
 WORKDIR /var/www
 
