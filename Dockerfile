@@ -24,7 +24,6 @@ COPY composer.lock composer.json /var/www/
 
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-autoloader
-RUN chown -R www-data:www-data storage
 
 # Copy existing application directory contents to the working directory
 COPY . /var/www
@@ -33,6 +32,7 @@ COPY . /var/www
 EXPOSE 9000
 CMD ["php-fpm"]
 
-RUN php artisan cache:clear \
+RUN chown -R www-data:www-data storage \
+    php artisan cache:clear \
     php artisan view:clear \
     composer dump-autoload
