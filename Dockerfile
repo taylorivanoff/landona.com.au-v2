@@ -38,3 +38,6 @@ RUN composer install --no-scripts --no-autoloader
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
+
+RUN php artisan view:clear
+RUN php artisan cache:clear
