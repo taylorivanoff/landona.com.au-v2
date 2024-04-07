@@ -15,11 +15,13 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     zip \
-    unzip \
+    unzip
 
-# Install GD extension
-RUN docker-php-ext-configure gd --with-freetype \
-  && docker-php-ext-install gd pdo_mysql
+# Configure GD extension with FreeType support
+RUN docker-php-ext-configure gd --with-freetype
+
+# Install GD and pdo_mysql extensions
+RUN docker-php-ext-install gd pdo_mysql
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -33,10 +35,11 @@ COPY . /var/www
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-autoloader
 
-# Set proper permissions for Laravel storage directory
-RUN chown -R laravel:laravel storage
-RUN chmod -R 775 storage
-
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
+
+USER 1001:1001
+
+RUN php artisan view:clear
+RUN php artisan config:clear
