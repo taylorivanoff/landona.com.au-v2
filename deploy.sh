@@ -8,7 +8,7 @@ git pull origin main
 
 # Run npm build to build your project
 npm install         # Install dependencies if needed
-npm run production       # Run the build command
+npm run prod       # Run the build command
 
 # Build your Docker containers
 docker-compose up -d --build
