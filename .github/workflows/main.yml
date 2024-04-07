@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy
-        run: /deploy.sh  # Replace with the actual path to your deploy.sh script
+        run: deploy.sh  # Replace with the actual path to your deploy.sh script
