@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy
-        run: deploy.sh  # Replace with the actual path to your deploy.sh script
+        run: /home/taylor/landona.com.au/deploy.sh  # Replace with the actual path to your deploy.sh script
