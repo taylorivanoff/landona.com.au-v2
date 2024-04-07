@@ -40,6 +40,3 @@ EXPOSE 9000
 CMD ["php-fpm"]
 
 USER 1001:1001
-
-RUN php artisan view:clear
-RUN php artisan config:clear
