@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Deploy
-        run: /home/taylor/landona.com.au/deploy.sh  # Replace with the actual path to your deploy.sh script
+      
+      - name: List files in directory
+        run: ls -l /home/taylor/landona.com.au
+      
+      - name: Execute deploy script
+        run: /home/taylor/landona.com.au/deploy.sh
