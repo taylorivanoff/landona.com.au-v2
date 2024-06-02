@@ -15,8 +15,40 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $path = storage_path('app/reviews.csv'); // Update this path to your CSV file location
+    $reviews = [];
+    if (($handle = fopen($path, 'r')) !== FALSE) {
+        $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
+        while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+            $reviews[] = array_combine($header, $row);
+        }
+        fclose($handle);
+    }
+
+    foreach ($reviews as &$review) {
+        $review['created_at_diff'] = Carbon\Carbon::parse($review['created_at'])->diffForHumans();
+    }
+
+    return view('pages/index', [
+        'reviews' => $reviews
+    ]);
 })->name('home');
+
+Route::get('/faq', function () {
+    return view('pages/faq');
+})->name('faq');
+
+//Route::get('/blog', function () {
+//    return view('pages/blog');
+//})->name('blog');
+
+Route::get('/resources', function () {
+    return view('pages/resources');
+})->name('resources');
+
+Route::get('/about-us', function () {
+    return view('pages/about-us');
+})->name('about-us');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
