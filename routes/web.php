@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $path = storage_path('csvs/reviews.csv'); // Update this path to your CSV file location
+    $path = storage_path('csvs/reviews.csv');
     $reviews = [];
 
     if (($handle = fopen($path, 'r')) !== FALSE) {
