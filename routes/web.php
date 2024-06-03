@@ -38,9 +38,17 @@ Route::get('/', function () {
     return view('pages.index', ['reviews' => $reviews]);
 })->name('home');
 
-
 Route::get('/faq', function () {
-    return view('pages/faq');
+    $path = storage_path('csvs/faqs.csv');
+    $qa = [];
+    if (($handle = fopen($path, 'r')) !== FALSE) {
+        $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
+        while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+            $qa[] = array_combine($header, $row);
+        }
+        fclose($handle);
+    }
+    return view('pages/faq', ['qa' => $qa]);
 })->name('faq');
 
 //Route::get('/blog', function () {
