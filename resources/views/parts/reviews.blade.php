@@ -1,25 +1,22 @@
-<div class="lg:py-32 py-16 flex flex-col space-y-8">
-    <h2 class="font-serif text-3xl text-gray-900 leading-relaxed">Google Reviews</h2>
+<x-section  id="google-reviews">
+    <x-h type="h1">Google Reviews</x-h>
 
     <div class="space-y-4 space-x-4">
         <button id="prev-btn" class="border p-2 rounded disabled:opacity-50" disabled>Previous</button>
         <button id="next-btn" class="border p-2 rounded disabled:opacity-50">Next</button>
     </div>
 
-    <div id="reviews-container" class="flex flex-row flex-wrap justify-center">
+    <div id="reviews-container" class="flex flex-col justify-center">
         @foreach($reviews as $review)
-            <figure class="review text-gray-500 tracking-wide pb-8 lg:p-8 hidden lg:basis-1/3">
-                <blockquote class="py-2">{{ $review['review_body'] }}</blockquote>
-                <figcaption class="font-mono">— {{ $review['name'] }}, {{ $review['created_at_diff'] }}</figcaption>
-            </figure>
+            <x-blockquote class="review" author="{{ $review['name'] }}, {{ $review['created_at_diff'] }}">{{ $review['review_body'] }}</x-blockquote>
         @endforeach
     </div>
-</div>
+</x-section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const reviews = document.querySelectorAll('.review');
-        const reviewsPerPage = 1;
+        const reviewsPerPage = 3;
         let currentPage = 0;
 
         function showReviews(page) {
@@ -37,6 +34,9 @@
             if ((currentPage + 1) * reviewsPerPage < reviews.length) {
                 currentPage++;
                 showReviews(currentPage);
+            } else {
+                currentPage = 0; // Loop back to the first review
+                showReviews(currentPage);
             }
         }
 
@@ -51,5 +51,7 @@
         document.getElementById('prev-btn').addEventListener('click', prevPage);
 
         showReviews(currentPage);
+
+        // setInterval(nextPage, 8000); // Automatically go to the next review every 8 seconds
     });
 </script>

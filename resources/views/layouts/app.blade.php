@@ -26,30 +26,10 @@
             {{ $header }}
         </header>
     @endisset
-    <main class="px-8 flex flex-col">
+    <main class="flex flex-col py-16 lg:py-32 px-8 lg:px-8 lg:mx-16 space-y-4">
         {{ $slot }}
     </main>
-    <footer class="flex flex-col py-16 lg:py-32 px-8 lg:px-8 lg:mx-16 space-y-4">
-        <div>
-            <x-nav-link class="underline" href="{{ route('home') }}">
-                Home
-            </x-nav-link>
-            <x-nav-link class="underline" href="{{ route('faq') }}">
-                FAQ
-            </x-nav-link>
-            <x-nav-link class="underline" href="{{ route('resources') }}">
-                Resources
-            </x-nav-link>
-            <x-nav-link class="underline" href="{{ route('about-us') }}">
-                About Us
-            </x-nav-link>
-            <x-nav-link class="underline" href="tel:89014705">
-                Call Us
-            </x-nav-link>
-        </div>
-        <p>&copy;{{ now()->year }} Landona Conveyancing Pty. Ltd.</p>
-        <p><a href="https://verify.licence.nsw.gov.au/details/Conveyancer%20Licence/69484" target="_blank" class="underline">Conveyancer License Number: 05006589</a></p>
-    </footer>
+    @include('layouts.footer')
 </div>
 </body>
 </html>

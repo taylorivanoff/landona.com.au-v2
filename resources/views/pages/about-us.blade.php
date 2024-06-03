@@ -1,26 +1,29 @@
 <x-app-layout>
     <div id="about-us" class="py-32">
         <div class="flex-col items-center space-y-12">
-            <h2 class="font-serif text-2xl md:text-4xl text-gray-900 text-center">About Us</h2>
+            <x-h type="h1">About Us</x-h>
             <div class="text-left max-w-3xl mx-auto py-8 space-y-8">
-                <div class="text-gray-500 space-y-4">
-                    <h3 class="font-semibold">Our Story</h3>
-                    <p>Landona Conveyancing has been providing expert conveyancing services in NSW for over 20 years. Our mission is to make the property transfer process as seamless and stress-free as possible for our clients.</p>
-                </div>
+                <h3 class="font-serif text-xl">Our Story</h3>
+                <x-p>Landona Conveyancing has been providing expert conveyancing services in NSW for over 20 years. Our
+                    mission is to make the property transfer process as seamless and stress-free as possible for our
+                    clients.
+                </x-p>
+                <h3 class="font-serif text-xl">Our Values</h3>
 
-                <div class="text-gray-500 space-y-4">
-                    <h3 class="font-semibold">Our Values</h3>
-                    <ul class="list-disc text-gray-500 ml-6 space-y-4">
-                        <li><strong>Integrity</strong>: We uphold the highest standards of integrity in all our actions.</li>
-                        <li><strong>Commitment</strong>: We are committed to providing excellent service and ensuring client satisfaction.</li>
-                        <li><strong>Innovation</strong>: We embrace new technologies and innovative solutions to improve our services.</li>
-                    </ul>
-                </div>
+                <x-ul>
+                    <li><strong>Integrity</strong>: We uphold the highest standards of integrity in all our actions.
+                    </li>
+                    <li><strong>Commitment</strong>: We are committed to providing excellent service and ensuring client
+                        satisfaction.
+                    </li>
+                    <li><strong>Innovation</strong>: We embrace new technologies and innovative solutions to improve our
+                        services.
+                    </li>
+                </x-ul>
             </div>
         </div>
     </div>
 </x-app-layout>
-
 
 
 {{--

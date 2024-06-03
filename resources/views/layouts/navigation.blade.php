@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 pin-t fixed w-full">
+<nav class="bg-white border-b border-gray-100 pin-t fixed w-full z-50">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
             <div class="flex">
@@ -6,8 +6,8 @@
                     <a class="flex flex-row items-center hover:text-blue-900 transition ease-in-out duration-150"
                        href="{{ route('home') }}">
                         <x-application-logo
-                            class="block h-10 w-auto fill-current"/>
-                        <h1 class="font-bold tracking-tight  ml-3">
+                            class="block h-10 w-auto"/>
+                        <h1 class="font-bold tracking-tight hidden lg:flex ml-3">
                             Landona Conveyancing
                         </h1>
                     </a>
@@ -17,7 +17,7 @@
                     <x-nav-link href="{{ route('home') }}">
                         Home
                     </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#services">
+                    <x-nav-link href="{{ route('home') }}#comprehensive-property-&-land-services">
                         Services
                     </x-nav-link>
                     <x-nav-link href="{{ route('home') }}#google-reviews">
@@ -26,7 +26,10 @@
                     <x-nav-link href="{{ route('home') }}#testimonials">
                         Testimonials
                     </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}/#contact-us">
+                    <x-nav-link href="{{ route('home') }}#from-contract-to-settlement-pexa">
+                        PEXA
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#contact-us">
                         Contact Us
                     </x-nav-link>
                     <x-nav-link href="{{ route('faq') }}">
@@ -42,7 +45,7 @@
                         About Us
                     </x-nav-link>
                     <x-content-button href="tel:89014705">
-                        Talk to Our Experts
+                        Talk to Our Experts ➜
                     </x-content-button>
                 </div>
             </div>

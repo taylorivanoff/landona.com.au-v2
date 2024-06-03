@@ -1,12 +1,9 @@
-<div class="flex items-center">
-    <div class="space-y-6 lg:basis-6/12 text-gray-600">
-        <h2 class="font-serif text-3xl text-gray-900 leading-relaxed">
-            {{ $title }}
-        </h2>
-        {{ $body }}
-    </div>
-
-    <div class="lg:basis-6/12">
+<x-section class="py-8 lg:py-16">
+    <div class="mx-auto w-1/3 py-4 lg:py-8">
         {{ $svg }}
     </div>
-</div>
+
+    <x-h type="h2">{{ $title }}</x-h>
+
+    {{ $body }}
+</x-section>
