@@ -30,16 +30,6 @@
             document.getElementById('next-btn').disabled = (page + 1) * reviewsPerPage >= reviews.length;
         }
 
-        function nextPage() {
-            if ((currentPage + 1) * reviewsPerPage < reviews.length) {
-                currentPage++;
-                showReviews(currentPage);
-            } else {
-                currentPage = 0; // Loop back to the first review
-                showReviews(currentPage);
-            }
-        }
-
         function prevPage() {
             if (currentPage > 0) {
                 currentPage--;
@@ -51,7 +41,5 @@
         document.getElementById('prev-btn').addEventListener('click', prevPage);
 
         showReviews(currentPage);
-
-        // setInterval(nextPage, 8000); // Automatically go to the next review every 8 seconds
     });
 </script>
