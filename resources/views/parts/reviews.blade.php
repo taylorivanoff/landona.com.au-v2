@@ -1,25 +1,26 @@
-<div class="lg:py-32 py-16 flex flex-col space-y-8">
-    <h2 class="font-serif text-3xl text-gray-900 leading-relaxed">Google Reviews</h2>
+<div id="google-reviews" class="py-32 px-8">
+    <div class="items-center space-y-20">
+        <h2 class="font-serif text-2xl md:text-4xl text-gray-900 text-center">Google Reviews</h2>
+        <div class="text-center mt-10">
+            <button id="prev-btn" class="underline px-4 py-2 rounded disabled:opacity-50" disabled>Previous</button>
+            <button id="next-btn" class="underline px-4 py-2 rounded disabled:opacity-50">Next</button>
+        </div>
+        <div id="reviews-container" class="flex flex-row flex-wrap justify-center">
+            @foreach($reviews as $review)
+                <figure class="review text-gray-500 tracking-wide p-8 hidden basis-1/3">
+                    <blockquote class="py-2">{{ $review['review_body'] }}</blockquote>
+                    <figcaption class="font-mono">— {{ $review['name'] }}, {{ $review['created_at_diff'] }}</figcaption>
+                </figure>
+            @endforeach
+        </div>
 
-    <div class="space-y-4 space-x-4">
-        <button id="prev-btn" class="border p-2 rounded disabled:opacity-50" disabled>Previous</button>
-        <button id="next-btn" class="border p-2 rounded disabled:opacity-50">Next</button>
-    </div>
-
-    <div id="reviews-container" class="flex flex-row flex-wrap justify-center">
-        @foreach($reviews as $review)
-            <figure class="review text-gray-500 tracking-wide pb-8 lg:p-8 hidden lg:basis-1/3">
-                <blockquote class="py-2">{{ $review['review_body'] }}</blockquote>
-                <figcaption class="font-mono">— {{ $review['name'] }}, {{ $review['created_at_diff'] }}</figcaption>
-            </figure>
-        @endforeach
     </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const reviews = document.querySelectorAll('.review');
-        const reviewsPerPage = 1;
+        const reviewsPerPage = 6; // 2 rows of 3 reviews each
         let currentPage = 0;
 
         function showReviews(page) {
@@ -50,6 +51,7 @@
         document.getElementById('next-btn').addEventListener('click', nextPage);
         document.getElementById('prev-btn').addEventListener('click', prevPage);
 
+        // Initially show the first page
         showReviews(currentPage);
     });
 </script>
