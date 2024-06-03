@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\URL;
 */
 
 Route::get('/', function () {
-    $path = storage_path('csvs/reviews.csv'); // Update this path to your CSV file location
+    $path = storage_path('app/reviews.csv'); // Update this path to your CSV file location
     $reviews = [];
     if (($handle = fopen($path, 'r')) !== FALSE) {
         $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
