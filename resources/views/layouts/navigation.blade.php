@@ -3,14 +3,13 @@
         <div class="flex justify-between h-20">
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
-                    <a class="flex flex-row items-center  hover:text-blue-900 transition ease-in-out duration-150" href="{{ route('home') }}">
+                    <a href="{{ route('home') }}">
                         <x-application-logo
-                                class="block h-10 w-auto fill-current"/>
-                        <h1 class="font-bold tracking-tight  ml-3">
-                            Landona Conveyancing
-                        </h1>
+                                class="block h-10 w-auto fill-current hover:text-blue-900 transition ease-in-out duration-150"/>
                     </a>
-
+                    <h1 class="font-bold tracking-tight  ml-3">
+                        Landona Conveyancing
+                    </h1>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex flex items-center">
@@ -41,9 +40,9 @@
                     <x-nav-link href="{{ route('about-us') }}">
                         About Us
                     </x-nav-link>
-                    <x-content-button href="tel:89014705">
+                    <x-cta-button href="tel:89014705">
                         Talk to Our Experts
-                    </x-content-button>
+                    </x-cta-button>
                 </div>
             </div>
 
