@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change directory to where your project files are located
-cd ~/landona.com.au || exit
+cd ~/landona.com.au
 
 # Pull the latest changes from your GitHub repository
 git pull origin main
