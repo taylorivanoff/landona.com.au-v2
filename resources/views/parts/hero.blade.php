@@ -1,4 +1,4 @@
-<x-hero class="lg:flex-row" id="conveyancing-made-easy">
+<x-hero class="lg:flex-row lg:space-x-12" id="conveyancing-made-easy">
     <svg class="w-48 lg:w-4/5 opacity-90 hover:opacity-95" xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 490.31761 471.49999">
         <g>
@@ -76,10 +76,10 @@
             d="M159.30957,338.49185C71.46582,338.49185,0,267.02603,0,179.18276S71.46582,19.87417,159.30957,19.87417s159.30859,71.46533,159.30859,159.30859-71.46582,159.30908-159.30859,159.30908Zm-.00001-316.61768C64.56828,223.29978,1.32341,109.477,1.99999,179.18278c.84189,86.73663,70.56837,157.30907,157.30958,157.30907s157.30859-70.56836,157.30859-157.30908S246.04982,21.87417,159.30956,21.87417Z"
             fill="#3f3d56"/>
     </svg>
-    <x-section>
-        <x-h type="h2">
-            <span class="text-5xl text-left">Conveyancing Made Easy</span>
-        </x-h>
+    <div class="space-y-12">
+        <h2 class="text-5xl text-left font-serif">
+            Conveyancing<br> Made Easy
+        </h2>
         <x-p>
             Whether you're moving to a new suburb, buying your first
             home, or expanding your investment portfolio, we're here to make residential property
@@ -88,5 +88,5 @@
         <x-content-button href="#services">
             See How It Works ➜
         </x-content-button>
-    </x-section>
+    </div>
 </x-hero>

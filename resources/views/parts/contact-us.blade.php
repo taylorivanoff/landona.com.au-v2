@@ -1,11 +1,6 @@
-<x-section>
-    <div
-        class="items-center bg-gradient-to-bl mx-8 from-blue-500 from-10% via-blue-600 via-30% to-blue-500 to-90% rounded-lg opacity-90 mt-16 py-4 lg:py-32">
-        <x-p class="font-mono leading-relaxed uppercase text-lg font-bold text-gray-100 text-center">
-            Ready to get started?
-        </x-p>
-    </div>
-</x-section>
+<x-p class="font-mono leading-relaxed uppercase text-lg font-bold text-center">
+    Ready to get started?
+</x-p>
 
 <x-section id="contact-us" class="flex flex-row">
     <x-h type="h1">

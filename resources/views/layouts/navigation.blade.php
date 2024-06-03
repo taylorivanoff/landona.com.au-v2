@@ -26,14 +26,14 @@
                     <x-nav-link href="{{ route('home') }}#testimonials">
                         Testimonials
                     </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#from-contract-to-settlement-pexa">
-                        PEXA
-                    </x-nav-link>
                     <x-nav-link href="{{ route('home') }}#contact-us">
                         Contact Us
                     </x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#from-contract-to-settlement-pexa">
+                        PEXA
+                    </x-nav-link>
                     <x-nav-link href="{{ route('faq') }}">
-                        FAQ
+                        Q & A
                     </x-nav-link>
                     {{--<x-nav-link href="{{ route('blog') }}">--}}
                     {{--    Blog--}}
