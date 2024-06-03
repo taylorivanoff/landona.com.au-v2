@@ -4,7 +4,7 @@
                 Home
             </x-nav-link>
             <x-nav-link class="underline" href="{{ route('faq') }}">
-                FAQ
+                Q&A
             </x-nav-link>
             <x-nav-link class="underline" href="{{ route('resources') }}">
                 Resources

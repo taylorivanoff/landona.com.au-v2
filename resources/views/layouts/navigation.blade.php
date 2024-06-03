@@ -33,7 +33,7 @@
                         PEXA
                     </x-nav-link>
                     <x-nav-link href="{{ route('faq') }}">
-                        Q & A
+                        Q&A
                     </x-nav-link>
                     {{--<x-nav-link href="{{ route('blog') }}">--}}
                     {{--    Blog--}}
