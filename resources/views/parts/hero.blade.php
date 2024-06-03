@@ -85,7 +85,7 @@
             home, or expanding your investment portfolio, we're here to make residential property
             transactions simple and stress-free.
         </x-p>
-        <x-content-button href="#services">
+        <x-content-button href="#comprehensive-property-&-land-services">
             See How It Works ➜
         </x-content-button>
     </div>
