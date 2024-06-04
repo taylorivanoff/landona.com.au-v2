@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Home')
     @include('parts/hero')
     @include('parts/services')
     @include('parts/testimonials')
