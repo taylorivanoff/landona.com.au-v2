@@ -1,4 +1,4 @@
-<footer class="flex flex-row justify-between w-5/6 mx-auto my-16 bg-gray-200">
+<footer class="flex flex-row justify-between w-5/6 mx-auto my-16">
     <div class="flex flex-col space-y-2 float-left">
         <x-nav-link class="underline" href="{{ route('home') }}">
             Home

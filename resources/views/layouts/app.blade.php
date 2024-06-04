@@ -29,7 +29,7 @@
     <main class="flex flex-col py-16 lg:py-32 px-8 lg:px-8 lg:mx-16 space-y-4">
         {{ $slot }}
     </main>
-    @include('layouts.footer')
 </div>
+@include('layouts.footer')
 </body>
 </html>
