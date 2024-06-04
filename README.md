@@ -11,7 +11,7 @@
 - [License](#license)
 
 ## Requirements
-- PHP 8.1
+- PHP 8.3
 - Composer
 - Docker
 
