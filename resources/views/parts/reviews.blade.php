@@ -1,6 +1,10 @@
 <x-section  id="google-reviews">
     <x-h type="h1">Google Reviews</x-h>
 
+    <div class="text-yellow-400 text-center text-3xl">
+        &starf; &starf; &starf; &starf; &starf;
+    </div>
+
     <div class="space-y-4 space-x-4">
         <button id="prev-btn" class="border p-2 rounded disabled:opacity-50" disabled>Previous</button>
         <button id="next-btn" class="border p-2 rounded disabled:opacity-50">Next</button>
