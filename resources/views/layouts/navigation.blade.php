@@ -3,50 +3,23 @@
         <div class="flex justify-between h-20">
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
-                    <a class="flex flex-row items-center hover:text-blue-900 transition ease-in-out duration-150"
-                       href="{{ route('home') }}">
-                        <x-application-logo
-                            class="block h-10 w-auto"/>
-                        <h1 class="font-bold tracking-tight hidden lg:flex ml-3">
-                            Landona Conveyancing
-                        </h1>
+                    <a class="flex flex-row items-center hover:text-blue-900 transition ease-in-out duration-150" href="{{ route('home') }}">
+                        <x-application-logo class="block h-10 w-auto"/>
+                        <h1 class="font-bold tracking-tight hidden lg:flex ml-3">Landona Conveyancing</h1>
                     </a>
                 </div>
 
                 <div class="hidden space-x-8 -my-px ml-10 lg:flex items-center shrink-0">
-                    <x-nav-link href="{{ route('home') }}">
-                        Home
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#comprehensive-property-&-land-services">
-                        Services
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#google-reviews">
-                        Reviews
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#testimonials">
-                        Testimonials
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#contact-us">
-                        Contact Us
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#from-contract-to-settlement-pexa">
-                        PEXA
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('faq') }}">
-                        Q&A
-                    </x-nav-link>
-                    {{--<x-nav-link href="{{ route('blog') }}">--}}
-                    {{--    Blog--}}
-                    {{--</x-nav-link>--}}
-                    <x-nav-link href="{{ route('resources') }}">
-                        Resources
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('about-us') }}">
-                        About Us
-                    </x-nav-link>
-                    <x-content-button href="tel:89014705">
-                        Talk to Our Experts ➜
-                    </x-content-button>
+                    <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#comprehensive-property-&-land-services">Services</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#google-reviews">Reviews</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#testimonials">Testimonials</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#contact-us">Contact Us</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#from-contract-to-settlement-pexa">PEXA</x-nav-link>
+                    <x-nav-link href="{{ route('faq') }}">Q&A</x-nav-link>
+                    <x-nav-link href="{{ route('resources') }}">Resources</x-nav-link>
+                    <x-nav-link href="{{ route('about-us') }}">About Us</x-nav-link>
+                    <x-content-button href="tel:89014705">Talk to Our Experts ➜</x-content-button>
                 </div>
             </div>
 
@@ -54,8 +27,7 @@
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button
-                                class="flex items-center  font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            <button class="flex items-center  font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                 <div>{{ Auth::user()->name }}</div>
 
                                 <div class="ml-1">
@@ -100,7 +72,7 @@
 
                     <div class="ml-3">
                         <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                        <div class="font-medium  text-gray-500">{{ Auth::user()->email }}</div>
+                        <div class="font-medium text-gray-500">{{ Auth::user()->email }}</div>
                     </div>
                 </div>
 
