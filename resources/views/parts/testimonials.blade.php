@@ -1,8 +1,8 @@
 @include('parts/reviews')
 
-<x-section id="testimonials">
+<x-section id="settlements">
     <x-h type="h2">
-        Settled Properties
+        Settlements
     </x-h>
     <h2 class="font-serif text-3xl md:text-4xl text-gray-900 leading-relaxed">
 

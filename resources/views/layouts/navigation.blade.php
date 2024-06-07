@@ -13,7 +13,7 @@
                     <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#comprehensive-property-&-land-services">Services</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#google-reviews">Reviews</x-nav-link>
-                    <x-nav-link href="{{ route('home') }}#testimonials">Testimonials</x-nav-link>
+                    <x-nav-link href="{{ route('home') }}#settlements">Settlements</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#contact-us">Contact Us</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#from-contract-to-settlement-pexa">PEXA</x-nav-link>
                     <x-nav-link href="{{ route('faq') }}">Q&A</x-nav-link>
