@@ -31,5 +31,7 @@ class GenerateSitemap extends Command
         SitemapGenerator::create(config('app.url'))
             ->getSitemap()
             ->writeToFile(public_path('sitemap.xml'));
+
+        return true;
     }
 }
