@@ -1,6 +1,6 @@
 <x-section id="from-contract-to-settlement-pexa">
     <x-h type="h2">
-        From Contract to Settlement
+        PEXA
     </x-h>
     <x-p>
         With 20 years of NSW conveyancing experience and secure digital settlements via PEXA, we ensure
