@@ -5,4 +5,5 @@
     @include('parts/testimonials')
     @include('parts/pexa')
     @include('parts/contact-us')
+    @include('pages/faq')
 </x-app-layout>
