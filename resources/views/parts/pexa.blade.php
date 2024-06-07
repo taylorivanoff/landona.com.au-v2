@@ -1,4 +1,4 @@
-<x-section id="from-contract-to-settlement-pexa">
+<x-section id="pexa">
     <x-h type="h2">
         PEXA
     </x-h>
