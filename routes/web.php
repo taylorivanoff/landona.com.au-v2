@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $path = storage_path('csvs/reviews.csv');
-    $reviews = [];
-
     if (($handle = fopen($path, 'r')) !== FALSE) {
         $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
         while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
@@ -35,7 +33,20 @@ Route::get('/', function () {
         return Carbon::parse($b['created_at'])->timestamp - Carbon::parse($a['created_at'])->timestamp;
     });
 
-    return view('pages.index', ['reviews' => $reviews]);
+
+    $path = storage_path('csvs/faqs.csv');
+    if (($handle = fopen($path, 'r')) !== FALSE) {
+        $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
+        while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+            $qa[] = array_combine($header, $row);
+        }
+        fclose($handle);
+    }
+
+    return view('pages.index', [
+        'reviews' => $reviews,
+        'qa' => $qa
+    ]);
 })->name('home');
 
 Route::get('/faq', function () {
