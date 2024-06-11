@@ -16,9 +16,11 @@
                     <x-nav-link href="{{ route('home') }}#settlements">Settlements</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#pexa">PEXA</x-nav-link>
                     <x-nav-link href="{{ route('home') }}#contact-us">Contact Us</x-nav-link>
-                    <x-nav-link href="{{ route('faq') }}">Q & A</x-nav-link>
+{{--                    <x-nav-link href="{{ route('faq') }}">Q & A</x-nav-link>--}}
                     <x-nav-link href="{{ route('resources') }}">Resources</x-nav-link>
                     <x-nav-link href="{{ route('about-us') }}">About Us</x-nav-link>
+                    <x-nav-link href="{{ route('about-us') }}"></x-nav-link>
+                    <x-content-button href="{{ route('enquiries.create') }}">Enquire Online ➜</x-content-button>
                     <x-content-button href="tel:89014705">Talk to Our Experts ➜</x-content-button>
                 </div>
             </div>

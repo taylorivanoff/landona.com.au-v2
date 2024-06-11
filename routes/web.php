@@ -18,9 +18,9 @@ Route::get('/', function () {
     $path = storage_path('csvs/reviews.csv');
     $reviews = [];
 
-    if (($handle = fopen($path, 'r')) !== FALSE) {
+    if (($handle = fopen($path, 'r')) !== false) {
         $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
-        while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
             $reviews[] = array_combine($header, $row);
         }
         fclose($handle);
@@ -37,9 +37,9 @@ Route::get('/', function () {
 
     $path = storage_path('csvs/faqs.csv');
     $qa = [];
-    if (($handle = fopen($path, 'r')) !== FALSE) {
+    if (($handle = fopen($path, 'r')) !== false) {
         $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
-        while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
             $qa[] = array_combine($header, $row);
         }
         fclose($handle);
@@ -47,20 +47,21 @@ Route::get('/', function () {
 
     return view('pages.index', [
         'reviews' => $reviews,
-        'qa' => $qa
+        'qa' => $qa,
     ]);
 })->name('home');
 
 Route::get('/faq', function () {
     $path = storage_path('csvs/faqs.csv');
     $qa = [];
-    if (($handle = fopen($path, 'r')) !== FALSE) {
+    if (($handle = fopen($path, 'r')) !== false) {
         $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
-        while (($row = fgetcsv($handle, 1000, ',')) !== FALSE) {
+        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
             $qa[] = array_combine($header, $row);
         }
         fclose($handle);
     }
+
     return view('pages/faq', ['qa' => $qa]);
 })->name('faq');
 
@@ -75,6 +76,12 @@ Route::get('/resources', function () {
 Route::get('/about-us', function () {
     return view('pages/about-us');
 })->name('about-us');
+
+use App\Http\Controllers\EnquiryController;
+
+Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
+Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
+
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');

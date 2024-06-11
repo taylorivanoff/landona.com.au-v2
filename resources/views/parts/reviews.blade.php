@@ -12,7 +12,10 @@
 
     <div id="reviews-container" class="flex flex-col justify-center">
         @foreach($reviews as $review)
-            <x-blockquote class="review" author="{{ $review['name'] }}, {{ $review['created_at_diff'] }}">{{ $review['review_body'] }}</x-blockquote>
+            <x-blockquote
+                class="review"
+                author="{{ $review['name'] }}, {{ $review['created_at_diff'] }}"
+            >{{ $review['review_body'] }}</x-blockquote>
         @endforeach
     </div>
 </x-section>
