@@ -2,7 +2,7 @@
     <x-h type="h1">Questions & Answers</x-h>
     <div id="accordion">
         @foreach($qa as $index => $q)
-            <div class="border-b border-gray-200 w-96">
+            <div class="border-b border-gray-200">
                 <h3 class="flex justify-between align-middle">
                     <button
                         class="font-semibold text-left py-4 focus:outline-none focus:ring"
@@ -14,6 +14,7 @@
                         {{ $q['question'] }}
                     </button>
                 </h3>
+
                 <div id="collapse{{ $index }}" class="py-4 hidden transition duration-300 ease-in-out" aria-labelledby="heading{{ $index }}">
                     <p class="text-gray-600 leading-relaxed">{{ $q['answer'] }}</p>
                 </div>
@@ -24,17 +25,18 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var accordionButtons = document.querySelectorAll('[data-toggle="collapse"]');
+        const accordionButtons = document.querySelectorAll('[data-toggle="collapse"]');
 
         accordionButtons.forEach(button => {
             button.addEventListener('click', function() {
-                var target = document.querySelector(this.getAttribute('data-target'));
+                const target = document.querySelector(this.getAttribute('data-target'));
 
                 if (target.classList.contains('hidden')) {
                     document.querySelectorAll('#accordion .accordion-collapse').forEach(item => {
                         item.classList.add('hidden');
                         item.classList.remove('block');
                     });
+
                     target.classList.remove('hidden');
                     target.classList.add('block');
                 } else {

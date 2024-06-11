@@ -1,6 +1,8 @@
 <?php
 
-use Carbon\Carbon;
+use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,60 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $path = storage_path('csvs/reviews.csv');
-    $reviews = [];
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
-    if (($handle = fopen($path, 'r')) !== false) {
-        $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
-        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-            $reviews[] = array_combine($header, $row);
-        }
-        fclose($handle);
-    }
+Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
-    foreach ($reviews as &$review) {
-        $review['created_at_diff'] = Carbon::parse($review['created_at'])->diffForHumans();
-    }
-
-    // Sort reviews by created_at in descending order
-    usort($reviews, function ($a, $b) {
-        return Carbon::parse($b['created_at'])->timestamp - Carbon::parse($a['created_at'])->timestamp;
-    });
-
-    $path = storage_path('csvs/faqs.csv');
-    $qa = [];
-    if (($handle = fopen($path, 'r')) !== false) {
-        $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
-        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-            $qa[] = array_combine($header, $row);
-        }
-        fclose($handle);
-    }
-
-    return view('pages.index', [
-        'reviews' => $reviews,
-        'qa' => $qa,
-    ]);
-})->name('home');
-
-Route::get('/faq', function () {
-    $path = storage_path('csvs/faqs.csv');
-    $qa = [];
-    if (($handle = fopen($path, 'r')) !== false) {
-        $header = fgetcsv($handle, 1000, ','); // Assuming the first row is the header
-        while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-            $qa[] = array_combine($header, $row);
-        }
-        fclose($handle);
-    }
-
-    return view('pages/faq', ['qa' => $qa]);
-})->name('faq');
-
-//Route::get('/blog', function () {
-//    return view('pages/blog');
-//})->name('blog');
+Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
+Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
 
 Route::get('/resources', function () {
     return view('pages/resources');
@@ -76,11 +30,6 @@ Route::get('/resources', function () {
 Route::get('/about-us', function () {
     return view('pages/about-us');
 })->name('about-us');
-
-use App\Http\Controllers\EnquiryController;
-
-Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
-Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
 
 
 //Route::get('/dashboard', function () {

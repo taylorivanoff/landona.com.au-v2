@@ -1,0 +1,10 @@
+<x-nav-link href="{{ route('home') }}">Home</x-nav-link>
+<x-nav-link href="{{ route('home') }}#comprehensive-property-&-land-services">Services</x-nav-link>
+<x-nav-link href="{{ route('home') }}#google-reviews">Reviews</x-nav-link>
+<x-nav-link href="{{ route('home') }}#settlements">Settlements</x-nav-link>
+<x-nav-link href="{{ route('home') }}#pexa">PEXA</x-nav-link>
+<x-nav-link href="{{ route('home') }}#contact-us">Contact Us</x-nav-link>
+<x-nav-link href="{{ route('resources') }}">Resources</x-nav-link>
+<x-nav-link href="{{ route('about-us') }}">About Us</x-nav-link>
+<x-alternate-content-button href="{{ route('enquiries.create') }}">Enquire Online ➜</x-alternate-content-button>
+<x-content-button href="tel:89014705">Talk to Our Experts ➜</x-content-button>

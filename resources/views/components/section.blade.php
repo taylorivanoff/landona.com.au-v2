@@ -1,3 +1,5 @@
-<div class="flex flex-col space-y-8 max-w-5xl py-16 px-4 lg:px-16 lg:py-32 mx-auto {{ $attributes->get('class') }}" {{ $attributes }}>
-    {{$slot}}
+<div class="columns-1 max-w-screen-lg mx-auto mt-24 mb-16 lg:mb-24 pt-16 lg:pt-24 pb-16 lg:pb-24 {{ $attributes->get('class') }}" id="{{ $attributes->get('id') }}">
+    <div class="flex flex-col space-y-8 px-8">
+        {{ $slot }}
+    </div>
 </div>

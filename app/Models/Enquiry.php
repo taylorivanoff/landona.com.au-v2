@@ -9,13 +9,5 @@ class Enquiry extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'client_type',
-        'first_name',
-        'last_name',
-        'email',
-        'phone_number',
-        'type_of_matter',
-        'source',
-    ];
+    protected $fillable = ['client_type', 'first_name', 'last_name', 'email', 'phone_number', 'type_of_matter', 'find_us', 'preferred_contact_time'];
 }

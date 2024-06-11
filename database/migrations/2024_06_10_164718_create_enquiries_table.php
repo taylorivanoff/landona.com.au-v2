@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -19,7 +18,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone_number');
             $table->string('type_of_matter');
-            $table->string('source');
+            $table->string('find_us');
+            $table->string('preferred_contact_time');
             $table->timestamps();
         });
     }

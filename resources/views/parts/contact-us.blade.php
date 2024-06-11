@@ -1,19 +1,19 @@
-
-
-<x-section id="contact-us" class="flex flex-row">
+<x-section id="contact-us">
     <x-p class="font-mono leading-relaxed uppercase text-lg font-bold text-center">
-        Ready to get started?
+        Ready to Simplify Your Property Journey?
     </x-p>
     <x-h type="h1">
-        Contact Us
+        Get in Touch with Us
     </x-h>
-    <x-p>Let us make your conveyancing journey easy and hassle-free. Contact us today to get
-        started!
+    <x-p class="text-center">
+        Don't let the complexities of conveyancing stress you out. Reach out now, and let our experts handle everything for you.
     </x-p>
-    <x-ul>
-        <li><strong>Email</strong>: <a href="mailto:tina@landona.com.au">tina@landona.com.au</a></li>
-        <li><strong>Phone</strong>: <a href="tel:0412585884">0412 585 884</a></li>
-        <li><strong>Office Address</strong>: 14 Larool Avenue, Lindfield NSW 2070</li>
-        <li><strong>P.O. Box</strong>: 367, Lindfield NSW 2070</li>
-    </x-ul>
+    <div class="text-center space-y-4 lg:space-y-0 lg:space-x-4">
+        <x-content-button href="tel:89014705">
+            Talk to Our Experts ➜
+        </x-content-button>
+        <x-alternate-content-button href="{{ route('enquiries.create') }}">
+            Enquire Online ➜
+        </x-alternate-content-button>
+    </div>
 </x-section>
