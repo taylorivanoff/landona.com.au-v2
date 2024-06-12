@@ -1,6 +1,6 @@
 <x-section>
     <x-h type="h1">Questions & Answers</x-h>
-    <div id="accordion">
+    <div id="questions-and-answers">
         @foreach($qa as $index => $q)
             <div class="border-b border-gray-200">
                 <h3 class="flex justify-between align-middle">
@@ -32,7 +32,7 @@
                 const target = document.querySelector(this.getAttribute('data-target'));
 
                 if (target.classList.contains('hidden')) {
-                    document.querySelectorAll('#accordion .accordion-collapse').forEach(item => {
+                    document.querySelectorAll('#questions-and-answers .questions-and-answers-collapse').forEach(item => {
                         item.classList.add('hidden');
                         item.classList.remove('block');
                     });

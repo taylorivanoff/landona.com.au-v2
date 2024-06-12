@@ -1,4 +1,4 @@
-<x-app-layout>
-@section('title', 'Enquire')
+<x-guest-layout>
+@section('title', 'Submit an Enquiry')
 @include('parts/enquiry/create')
-</x-app-layout>
+</x-guest-layout>

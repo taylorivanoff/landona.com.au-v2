@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <div id="blog" class="py-32">
         <div class="flex-col items-center space-y-12">
             <h2 class="font-serif text-2xl md:text-4xl text-gray-900 text-center">Blog</h2>
@@ -16,4 +16,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>

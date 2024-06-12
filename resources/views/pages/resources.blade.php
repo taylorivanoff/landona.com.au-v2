@@ -1,4 +1,5 @@
-<x-app-layout>
+<x-guest-layout>
+    @section('title', 'Resources')
     <x-section-full>
         <x-h type="h1">Resources</x-h>
         <h3 class="font-semibold">Guides and Checklists</h3>
@@ -20,4 +21,4 @@
             </li>
         </x-ul>
     </x-section-full>
-</x-app-layout>
+</x-guest-layout>

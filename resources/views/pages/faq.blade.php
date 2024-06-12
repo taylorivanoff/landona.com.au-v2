@@ -1,3 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
+    @section('title', 'Q & A')
     @include('parts/q-and-a')
-</x-app-layout>
+</x-guest-layout>

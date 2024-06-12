@@ -1,4 +1,6 @@
-<x-app-layout>
+<x-guest-layout>
+    @section('title', 'About Us')
+
     <div id="about-us" class="py-32">
         <div class="flex flex-col items-center space-y-12">
             <x-h type="h1">About Us</x-h>
@@ -22,4 +24,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>

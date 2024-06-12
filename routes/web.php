@@ -31,9 +31,13 @@ Route::get('/about-us', function () {
     return view('pages/about-us');
 })->name('about-us');
 
+Route::get('/dashboard', function () {
+    return view('pages/dashboard/home/index');
+})->middleware(['auth'])->name('dashboard');
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+// routes/web.php
 
-//require __DIR__.'/auth.php';
+Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
+
+
+require __DIR__.'/auth.php';

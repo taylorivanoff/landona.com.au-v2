@@ -22,6 +22,7 @@
         "alpinejs": "^3.14.0",
         "autoprefixer": "^10.4.19",
         "axios": "^1.7.2",
+        "jquery": "^3.7.1",
         "postcss": "8.4.38"
     }
 }
