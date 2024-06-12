@@ -91,7 +91,7 @@
                     home, or expanding your investment portfolio, we're here to make residential property
                     transactions simple and stress-free.
                 </x-p>
-                <x-content-button href="{{route('home')}}#comprehensive-property-&-land-services">
+                <x-content-button href="{{route('home')}}#comprehensive-property-&-land-services" id="see-our-services">
                     See Our Services ➜
                 </x-content-button>
             </div>

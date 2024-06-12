@@ -7,7 +7,7 @@
         your property transactions are seamless and protected every step of the way.
     </x-p>
     <div class="text-center">
-        <x-alternate-content-button href="https://www.pexa.com.au/solutions/buyers-sellers/#overview">Discover How PEXA
+        <x-alternate-content-button id="discover-how-pexa-can-benefit-you" href="https://www.pexa.com.au/solutions/buyers-sellers/#overview">Discover How PEXA
             Can Benefit You ➜
         </x-alternate-content-button>
     </div>
