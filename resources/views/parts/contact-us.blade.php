@@ -9,10 +9,10 @@
         Don't let the complexities of conveyancing stress you out. Reach out now, and let our experts handle everything for you.
     </x-p>
     <div class="text-center space-y-4 lg:space-y-0 lg:space-x-4">
-        <x-content-button href="tel:89014705">
+        <x-content-button href="tel:89014705" id="talk-to-our-experts">
             Talk to Our Experts ➜
         </x-content-button>
-        <x-alternate-content-button href="{{ route('enquiries.create') }}">
+        <x-alternate-content-button href="{{ route('enquiries.create') }}" id="enquire-online">
             Enquire Online ➜
         </x-alternate-content-button>
     </div>

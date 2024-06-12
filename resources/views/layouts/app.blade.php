@@ -9,14 +9,14 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     @if(env('APP_ENV') === 'production')
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXLK437JYZ"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDS0LE2JFE"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-ZXLK437JYZ');
+
+            gtag('config', 'G-BDS0LE2JFE');
         </script>
     @endif
 </head>

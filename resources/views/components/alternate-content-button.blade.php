@@ -6,6 +6,7 @@
 <a
     href="{{ $href }}"
     class="{{ $classes }}"
+    onclick="gtag('event', 'click', {'event_category': 'Button', 'event_label': '{{ $attributes->get('id') }}'});"
     {{ $attributes->merge() }}>
     {{ $slot }}
 </a>
