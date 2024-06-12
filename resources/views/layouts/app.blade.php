@@ -8,17 +8,15 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    @if(env('APP_ENV') === 'production')
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDS0LE2JFE"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDS0LE2JFE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-            gtag('config', 'G-BDS0LE2JFE');
-        </script>
-    @endif
+        gtag('config', 'G-BDS0LE2JFE');
+    </script>
 </head>
 <body class="font-sans antialiased">
     @include('layouts.navigation')
@@ -28,7 +26,6 @@
             {{ $header }}
         </header>
     @endisset
-
     <main class="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
         {{ $slot }}
     </main>
