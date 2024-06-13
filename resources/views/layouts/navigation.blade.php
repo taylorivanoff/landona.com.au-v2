@@ -10,7 +10,11 @@
 
             {{-- Desktop menu --}}
             <div class="hidden xl:flex space-x-8 items-center ml-auto shrink-0">
-                @include('parts/navigation/nav-links')
+                @if (Gate::allows('viewAdminDashboard'))
+                    <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                @else
+                    @include('parts/navigation/nav-links')
+                @endif
             </div>
 
             {{-- Mobile menu button --}}

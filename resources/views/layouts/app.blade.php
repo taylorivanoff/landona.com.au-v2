@@ -10,21 +10,17 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased">
-    @include('layouts.navigation')
+@include('layouts.navigation')
 
-    @if (Auth::check() && Gate::allows('viewAdminDashboard'))
-        <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
-    @endif
+@isset ($header)
+    <header class="bg-white shadow py-6 px-4 sm:px-6 lg:px-8">
+        {{ $header }}
+    </header>
+@endisset
+<main class="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    {{ $slot }}
+</main>
 
-    @isset ($header)
-        <header class="bg-white shadow py-6 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
-        </header>
-    @endisset
-    <main class="container mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        {{ $slot }}
-    </main>
-
-    @include('layouts.footer')
+@include('layouts.footer')
 </body>
 </html>

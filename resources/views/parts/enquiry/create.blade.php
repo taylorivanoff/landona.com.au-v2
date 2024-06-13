@@ -70,6 +70,21 @@
             <option value="Register a Covenant">Register a Covenant</option>
         </x-select>
 
+        @php
+            $timeslots = \App\Models\Enquiry::generateTimeslots();
+        @endphp
+
+        <x-label for="preferred_contact_time" class="form-label">Preferred Contact Time</x-label>
+        <x-select name="preferred_contact_time"  id="preferred_contact_time">
+            @foreach($timeslots as $day => $slots)
+                <optgroup label="{{ $day }}">
+                    @foreach($slots as $slot)
+                        <option value="{{ $day }} {{ $slot }}">{{ $day }} {{ $slot }}</option>
+                    @endforeach
+                </optgroup>
+            @endforeach
+        </x-select>
+
         <x-label for="find_us">How did you find us?</x-label>
         <x-select id="find_us" name="find_us">
             <option value="Google">Google</option>
@@ -78,27 +93,6 @@
             <option value="Buyers Agent">Buyers Agent</option>
             <option value="Social Media">Social Media</option>
             <option value="Other">Other</option>
-        </x-select>
-
-        <x-label for="preferred_contact_time" class="form-label">Preferred Contact Time</x-label>
-        <x-select name="preferred_contact_time" class="form-select" id="preferred_contact_time">
-            <option value="09:00 AM">09:00 AM</option>
-            <option value="09:30 AM">09:30 AM</option>
-            <option value="10:00 AM">10:00 AM</option>
-            <option value="10:30 AM">10:30 AM</option>
-            <option value="11:00 AM">11:00 AM</option>
-            <option value="11:30 AM">11:30 AM</option>
-            <option value="12:00 PM">12:00 PM</option>
-            <option value="12:30 PM">12:30 PM</option>
-            <option value="01:00 PM">01:00 PM</option>
-            <option value="01:30 PM">01:30 PM</option>
-            <option value="02:00 PM">02:00 PM</option>
-            <option value="02:30 PM">02:30 PM</option>
-            <option value="03:00 PM">03:00 PM</option>
-            <option value="03:30 PM">03:30 PM</option>
-            <option value="04:00 PM">04:00 PM</option>
-            <option value="04:30 PM">04:30 PM</option>
-            <option value="05:00 PM">05:00 PM</option>
         </x-select>
 
         <div class="text-center lg:text-left">
