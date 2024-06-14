@@ -39,14 +39,4 @@
     <x-nav-link href="{{ route('login') }}">Sign in</x-nav-link>
 @endauth
 
-@can('viewAdminDashboard', Auth::user())
-    <x-dropdown>
-        <x-slot:trigger>
-            Admin
-        </x-slot>
-        <x-slot:content>
-            <x-nav-link href="{{ route('admin.events') }}">Events</x-nav-link>
-        </x-slot>
-    </x-dropdown>
-@endcan
 

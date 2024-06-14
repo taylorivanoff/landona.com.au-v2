@@ -1,6 +1,6 @@
 @props(['contentClasses' => 'py-1 bg-white'])
 
-<div class="relative cursor-pointer" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
+<div class="relative cursor-pointer {{$attributes->get('class')}}" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
     <div @mouseenter="open = true" @mouseleave="open = false"
          class="inline-flex items-center pt-1 hover:text-gray-600 focus:outline-none focus:text-blue-900 focus:border-blue-900 transition duration-150 ease-in-out">
         {{ $trigger }}

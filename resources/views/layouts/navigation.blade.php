@@ -14,6 +14,16 @@
 
             @auth
             <div class="hidden xl:flex space-x-8 items-center mr-8 ml-auto shrink-0">
+                @can('viewAdminDashboard', Auth::user())
+                    <x-dropdown>
+                        <x-slot:trigger>
+                            Admin
+                        </x-slot>
+                        <x-slot:content>
+                            <x-nav-link href="{{ route('admin.events') }}">Events</x-nav-link>
+                        </x-slot>
+                    </x-dropdown>
+                @endcan
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit"
