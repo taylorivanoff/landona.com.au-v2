@@ -18,17 +18,15 @@ class EnquiryController extends Controller
         $this->staff = $staff;
     }
 
+    public function create()
+    {
+        $timeslots = \App\Models\Enquiry::generateTimeslots();
+
+        return view('pages/enquiry/create', compact('timeslots'));
+    }
+
     public function store(Request $request)
     {
-        $timeslots = array_merge(...array_values(Enquiry::generateTimeslots()));
-        $timeslot_values = array_map(function ($day, $slots) {
-            return array_map(function ($slot) use ($day) {
-                return $day . ' ' . $slot;
-            }, (array)$slots);
-        }, array_keys($timeslots), $timeslots);
-
-        $timeslot_values = array_merge(...$timeslot_values);
-
         $request->validate([
             'client_type' => 'required|string|in:Returning Client,New Client',
             'first_name' => 'required|string|max:255',
@@ -37,7 +35,7 @@ class EnquiryController extends Controller
             'phone_number' => 'required|string|max:20',
             'type_of_matter' => 'required|string|in:Proposed Sale,Proposed Purchase,Transferring,Justice of the Peace,Register a Covenant',
             'find_us' => 'required|string|in:Google,Word of Mouth,Real Estate Agent,Buyers Agent,Social Media,Other',
-            'preferred_contact_time' => 'required|string|in:' . implode(',', $timeslot_values),
+            'preferred_contact_time' => 'required|string|max:60',
         ]);
 
         $enquiry = Enquiry::create($request->all());
@@ -46,10 +44,5 @@ class EnquiryController extends Controller
         Mail::to($enquiry->email)->send(new ClientEnquiryMail($enquiry));
 
         return redirect()->route('enquiries.create')->with('success', 'Enquiry submitted successfully!');
-    }
-
-    public function create()
-    {
-        return view('pages/enquiry/create');
     }
 }

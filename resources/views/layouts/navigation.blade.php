@@ -8,27 +8,22 @@
                 </a>
             </div>
 
-            {{-- Desktop menu --}}
             <div class="hidden xl:flex space-x-8 items-center ml-auto shrink-0">
-                @if (Gate::allows('viewAdminDashboard'))
-                    <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
-                @else
-                    @include('parts/navigation/nav-links')
-                @endif
+                @include('parts/navigation/nav-links')
             </div>
 
-            {{-- Mobile menu button --}}
             <div class="xl:hidden ml-auto mt-2">
                 <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16m-7 6h7"/>
                     </svg>
                 </button>
             </div>
         </div>
     </div>
 
-    {{-- Mobile menu --}}
     <div x-show="open" class="xl:hidden">
         <div class="px-2 pt-2 pb-3 space-y-4 sm:px-3">
             @include('parts/navigation/nav-links')

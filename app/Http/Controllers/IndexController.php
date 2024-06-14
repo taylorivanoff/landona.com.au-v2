@@ -18,6 +18,6 @@ class IndexController extends Controller
         $reviews = $this->dataService->getReviews();
         $qa = $this->dataService->getFaqs();
 
-        return view('pages.index', ['reviews' => $reviews, 'qa' => $qa]);
+        return view('pages/home/home', ['reviews' => $reviews, 'qa' => $qa]);
     }
 }

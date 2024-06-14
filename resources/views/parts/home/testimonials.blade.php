@@ -14,4 +14,4 @@
     </div>
 </x-section>
 
-@include('parts/reviews')
+@include('parts.home.reviews')

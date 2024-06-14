@@ -26,3 +26,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
+
+import jquery from 'jquery';
+window.jquery = jquery;
+
+import flatpickr from "flatpickr";
+window.flatpickr = flatpickr;

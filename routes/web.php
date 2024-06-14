@@ -17,27 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-
-Route::get('/faq', [FAQController::class, 'index'])->name('faq');
-
+Route::get('/resources', fn() => view('pages/home/resources'))->name('resources');
+Route::get('/about-us', fn() => view('pages/home/about-us'))->name('about-us');
 Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
 
-Route::get('/resources', function () {
-    return view('pages/resources');
-})->name('resources');
 
-Route::get('/about-us', function () {
-    return view('pages/about-us');
-})->name('about-us');
-
+// Auth
 Route::get('/dashboard', function () {
-    return view('pages/dashboard/home/index');
+    return view('pages/dashboard/dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-// routes/web.php
-
 Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
-
 
 require __DIR__.'/auth.php';

@@ -1,4 +1,4 @@
 <x-guest-layout>
     @section('title', 'Q & A')
-    @include('parts/q-and-a')
+    @include('parts.home.q-and-a')
 </x-guest-layout>

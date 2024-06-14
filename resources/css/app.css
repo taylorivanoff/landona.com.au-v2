@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import 'flatpickr/dist/flatpickr.css';
+
 @font-face {
   font-family: "Value";
   src: url("../fonts/value-serif-bold.woff2");
@@ -43,3 +45,4 @@
   src: url("../fonts/space-mono-regular.ttf");
   font-weight: normal;
 }
+

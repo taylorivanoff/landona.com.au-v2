@@ -6,15 +6,7 @@ use App\Models\User;
 
 class UserPolicy
 {
-    /**
-     * Create a new policy instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    public function viewAdminDashboard(User $user)
+    public function viewAdminDashboard(User $user): bool
     {
         return $user->role === 'admin';
     }

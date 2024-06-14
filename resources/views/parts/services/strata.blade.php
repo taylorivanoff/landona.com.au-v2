@@ -1,4 +1,4 @@
-<x-feature>
+<x-feature id="strata">
     <x-slot name="title">Strata Conveyancing</x-slot>
     <x-slot name="body">
         <x-p>Our expert strata conveyancers ensure all aspects of your strata

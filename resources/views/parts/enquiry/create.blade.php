@@ -4,20 +4,17 @@
         We appreciate you taking the time to get in touch with us. Here’s what happens next:
     </x-p>
     <x-ol>
-        <li class="mb-2"><strong>Submission Confirmation:</strong> You will receive a confirmation email shortly to
+        <li class="mb-2"><strong>Submission Confirmation:</strong><br>You will receive a confirmation email shortly to
             acknowledge that we have received your enquiry.
         </li>
-        <li class="mb-2"><strong>Review:</strong> Our team will carefully review the details you’ve provided. This
+        <li class="mb-2"><strong>Review:</strong><br> Our team will carefully review the details you’ve provided. This
             helps us understand your needs better and prepare any necessary information or documentation.
         </li>
-        <li class="mb-2"><strong>Contact:</strong> One of our representatives will reach out to you within the next
-            24-48 hours. We aim to respond as quickly as possible to address your query and provide the assistance
-            you need.
+        <li class="mb-2"><strong>Contact:</strong><br> One of our team members will reach out to you regarding your proposed matter at your preferred contact time.
         </li>
-        <li class="mb-2"><strong>Follow-Up:</strong> In case you need immediate assistance, please feel free to
+        <li class="mb-2"><strong>Follow-Up:</strong><br> In case you need immediate assistance, please feel free to
             contact us directly at <a class="text-blue-700" href="tel:0412585884">0412 585 884</a> or <a
-                class="text-blue-700" href="mailto:tina@landona.com.au">tina@landona.com.au</a>. We are here to help
-            you!
+                class="text-blue-700" href="mailto:tina@landona.com.au">tina@landona.com.au</a>.
         </li>
     </x-ol>
 
@@ -43,26 +40,35 @@
 
     <form action="{{ route('enquiries.store') }}" method="POST" class="space-y-4">
         @csrf
-        <x-label for="client_type">Are you?</x-label>
-        <x-select id="client_type" name="client_type">
-            <option value="New Client" selected>New Client</option>
-            <option value="Returning Client">Returning Client</option>
-        </x-select>
+        <div class="space-y-2">
+            <x-label for="client_type">Are you?</x-label>
+            <x-select id="client_type" name="client_type" required>
+                <option value="New Client" selected>New Client</option>
+                <option value="Returning Client">Returning Client</option>
+            </x-select>
+        </div>
 
-        <x-label for="first_name">First Name</x-label>
-        <x-input type="text" id="first_name" name="first_name"/>
+        <div class="space-y-2">
+            <x-label for="first_name">First Name</x-label>
+            <x-input type="text" id="first_name" name="first_name" required/>
+        </div>
 
-        <x-label for="last_name">Last Name</x-label>
-        <x-input type="text" id="last_name" name="last_name"/>
+        <div class="space-y-2">
+            <x-label for="last_name">Last Name</x-label>
+            <x-input type="text" id="last_name" name="last_name" required/>
+        </div>
 
+        <div class="space-y-2">
+
+        </div>
         <x-label for="email">Email</x-label>
-        <x-input type="email" id="email" name="email"/>
+        <x-input type="email" id="email" name="email" required/>
 
         <x-label for="phone_number">Phone Number</x-label>
-        <x-input type="text" id="phone_number" name="phone_number"/>
+        <x-input type="text" id="phone_number" name="phone_number" required/>
 
         <x-label for="type_of_matter">Type of Matter</x-label>
-        <x-select id="type_of_matter" name="type_of_matter">
+        <x-select id="type_of_matter" name="type_of_matter" required>
             <option value="Proposed Sale">Proposed Sale</option>
             <option value="Proposed Purchase">Proposed Purchase</option>
             <option value="Transferring">Transferring</option>
@@ -70,20 +76,8 @@
             <option value="Register a Covenant">Register a Covenant</option>
         </x-select>
 
-        @php
-            $timeslots = \App\Models\Enquiry::generateTimeslots();
-        @endphp
-
-        <x-label for="preferred_contact_time" class="form-label">Preferred Contact Time</x-label>
-        <x-select name="preferred_contact_time"  id="preferred_contact_time">
-            @foreach($timeslots as $day => $slots)
-                <optgroup label="{{ $day }}">
-                    @foreach($slots as $slot)
-                        <option value="{{ $day }} {{ $slot }}">{{ $day }} {{ $slot }}</option>
-                    @endforeach
-                </optgroup>
-            @endforeach
-        </x-select>
+        <x-label for="preferred_contact_time" class="block text-sm font-medium text-gray-700">Preferred Contact Time</x-label>
+        <x-input type="text" id="preferred_contact_time" name="preferred_contact_time" placeholder="Select Time..."/>
 
         <x-label for="find_us">How did you find us?</x-label>
         <x-select id="find_us" name="find_us">
@@ -103,6 +97,65 @@
         </div>
     </form>
 </x-section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const now = new Date();
+        const currentHour = now.getHours();
+        let minDate = new Date();
+        let minTimeToday = "09:00";
+
+        // Check if current time is after 5 PM
+        if (currentHour >= 17) {
+            minDate.setDate(minDate.getDate() + 1);
+            // If tomorrow is a weekend, set minDate to next Monday
+            if (minDate.getDay() === 0) {
+                minDate.setDate(minDate.getDate() + 1);
+            } else if (minDate.getDay() === 6) {
+                minDate.setDate(minDate.getDate() + 2);
+            }
+            minTimeToday = "09:00"; // Set default time to 9 AM for the next day
+        } else if (currentHour >= 9 && currentHour < 17) {
+            minTimeToday = currentHour + ":00";
+        }
+
+        const maxDate = new Date(minDate);
+        maxDate.setDate(minDate.getDate() + 14);
+
+        flatpickr("#preferred_contact_time", {
+            enableTime: true,
+            dateFormat: "l, d F Y at H:i K",
+            minDate: minDate,
+            maxDate: maxDate,
+            defaultDate: minDate,
+            defaultHour: 9,
+            defaultMinute: 0,
+            disable: [
+                function(date) {
+                    // Disable weekends
+                    return (date.getDay() === 0 || date.getDay() === 6);
+                }
+            ],
+            time_24hr: false, // 12-hour format
+            minuteIncrement: 30,
+            onChange: function(selectedDates, dateStr, instance) {
+                const selectedDate = selectedDates[0];
+                if (selectedDate && selectedDate.toDateString() === now.toDateString()) {
+                    instance.set('minTime', minTimeToday);
+                    instance.set('maxTime', "17:00");
+                } else {
+                    instance.set('minTime', "09:00");
+                    instance.set('maxTime', "17:00");
+                }
+            }
+        });
+    });
+</script>
+
+
+
+
+
 <x-section>
     <x-h type="h2" class="font-semibold text-blue-600 mb-2">How to Ensure You Receive Our Response</x-h>
     <x-ul>
@@ -114,6 +167,7 @@
         </li>
     </x-ul>
 </x-section>
+
 <x-section>
     <x-h type="h2" class="font-semibold text-blue-600 mb-2">Need Immediate Help?</x-h>
     <x-p class="text-gray-700 mb-6">

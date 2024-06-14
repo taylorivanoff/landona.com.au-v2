@@ -1,4 +1,4 @@
-<x-feature>
+<x-feature id="residential">
     <x-slot name="title">Residential Conveyancing</x-slot>
     <x-slot name="body">
         <x-p>Navigating the complexities of residential property

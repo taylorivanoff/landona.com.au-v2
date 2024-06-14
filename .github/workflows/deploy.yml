@@ -10,14 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
-        run:  # Replace with your actual commands from deploy.sh
-          - cd ~/landona.com.au
-          - composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+        run: |
+          cd ~/landona.com.au
+          composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
       - name: Deploy
-        run:  # Replace with your actual commands from deploy.sh
-          - php artisan migrate --force --seed
-          - php artisan config:cache
-          - php artisan route:cache
-          - php artisan view:cache
-          - sudo systemctl restart php8.2-fpm
-          - sudo systemctl restart nginx
+        run: |
+          php artisan migrate --force --seed
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          sudo systemctl restart php8.2-fpm
+          sudo systemctl restart nginx

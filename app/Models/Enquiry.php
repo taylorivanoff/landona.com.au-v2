@@ -12,6 +12,8 @@ class Enquiry extends Model
 {
     use HasFactory;
 
+    protected static int $days = 3;
+
     protected $fillable = ['client_type', 'first_name', 'last_name', 'email', 'phone_number', 'type_of_matter', 'find_us', 'preferred_contact_time'];
 
     public static function generateTimeslots(): array
@@ -22,7 +24,7 @@ class Enquiry extends Model
         $period = new DatePeriod($start_time, $interval, $end_time);
 
         $days = [];
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < Enquiry::$days; $i++) {
             $current_day = new DateTime();
             $current_day->modify('+' . $i . ' weekdays');
             foreach ($period as $time) {
