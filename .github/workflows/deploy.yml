@@ -9,12 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Ensure deployment directory exists
+        run: mkdir -p /home/forge/landona.com.au
+
+      - name: Copy project files to deployment directory
+        run: cp -r $GITHUB_WORKSPACE/* /home/forge/landona.com.au/
+
       - name: Install dependencies
         run: |
           cd /home/forge/landona.com.au
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+
       - name: Deploy
         run: |
+          cd /home/forge/landona.com.au
           php artisan migrate --force --seed
           php artisan config:cache
           php artisan route:cache
