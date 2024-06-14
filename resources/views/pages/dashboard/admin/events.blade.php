@@ -7,6 +7,7 @@
         <div class="w-1/3">
             <x-label for="dateRange">Select Date Range</x-label>
             <x-select id="dateRange">
+                <option value="today">Today</option>
                 <option value="last_week">Last Week</option>
                 <option value="last_month">Last Month</option>
                 <option value="all_time">All Time</option>
@@ -22,6 +23,7 @@
         <div class="w-1/3">
             <x-label for="dateRange">Select Date Range</x-label>
             <x-select id="dateRange">
+                <option value="today">Today</option>
                 <option value="last_week">Last Week</option>
                 <option value="last_month">Last Month</option>
                 <option value="all_time">All Time</option>
@@ -40,8 +42,14 @@
 
             let pageViews = JSON.parse(rawPageViews);
             let uniqueVisitors = JSON.parse(rawUniqueVisitors);
+            let pageViewsChart = null;
+            let uniqueVisitorsChart = null;
 
-            const renderChart = (ctx, data, type = 'bar', labelText = 'Page Views Over Time') => {
+            const renderChart = (ctx, data, type = 'bar', labelText = 'Page Views Over Time', chartInstance) => {
+                if (chartInstance) {
+                    chartInstance.destroy();
+                }
+
                 const dates = [...new Set(data.map(item => item.date))];
                 const pages = [...new Set(data.map(item => item.page))];
 
@@ -56,7 +64,7 @@
                     };
                 });
 
-                new Chart(ctx, {
+                return new Chart(ctx, {
                     type: type,
                     data: {
                         labels: dates,
@@ -80,8 +88,8 @@
                 });
             };
 
-            renderChart(pageViewsCtx, pageViews, 'bar', 'Page Views Over Time');
-            renderChart(uniqueVisitorsCtx, uniqueVisitors, 'line', 'Unique Visitors Over Time');
+            pageViewsChart = renderChart(pageViewsCtx, pageViews, 'bar', 'Page Views Over Time', pageViewsChart);
+            uniqueVisitorsChart = renderChart(uniqueVisitorsCtx, uniqueVisitors, 'line', 'Unique Visitors Over Time', uniqueVisitorsChart);
 
             document.getElementById('dateRange').addEventListener('change', function () {
                 const selectedRange = this.value;
@@ -90,8 +98,8 @@
                     .then(data => {
                         pageViews = data.pageViews;
                         uniqueVisitors = data.uniqueVisitors;
-                        renderChart(pageViewsCtx, pageViews, 'bar', 'Page Views Over Time');
-                        renderChart(uniqueVisitorsCtx, uniqueVisitors, 'line', 'Unique Visitors Over Time');
+                        pageViewsChart = renderChart(pageViewsCtx, pageViews, 'bar', 'Page Views Over Time', pageViewsChart);
+                        uniqueVisitorsChart = renderChart(uniqueVisitorsCtx, uniqueVisitors, 'line', 'Unique Visitors Over Time', uniqueVisitorsChart);
                     });
             });
         });

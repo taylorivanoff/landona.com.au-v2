@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        $range = $request->get('range', 'all_time');
+        $range = $request->get('range', 'today');
 
         $pageViewsQuery = Event::selectRaw("COUNT(*) views, attribute page, DATE(created_at) date")
             ->groupBy(['date', 'attribute'])
@@ -33,6 +33,10 @@ class EventController extends Controller
             ->orderBy('date');
 
         switch ($range) {
+            case 'today':
+                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subDay());
+                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subDay());
+                break;
             case 'last_week':
                 $pageViewsQuery->where('created_at', '>=', Carbon::now()->subWeek());
                 $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subWeek());
@@ -54,7 +58,7 @@ class EventController extends Controller
 
     public function data(Request $request)
     {
-        $range = $request->get('range', 'all_time');
+        $range = $request->get('range', 'today');
 
         $pageViewsQuery = Event::selectRaw("COUNT(*) views, attribute page, DATE(created_at) date")
             ->groupBy(['date', 'attribute'])
@@ -77,6 +81,10 @@ class EventController extends Controller
             ->orderBy('date');
 
         switch ($range) {
+            case 'today':
+                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subDay());
+                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subDay());
+                break;
             case 'last_week':
                 $pageViewsQuery->where('created_at', '>=', Carbon::now()->subWeek());
                 $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subWeek());

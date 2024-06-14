@@ -24,6 +24,7 @@ Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.st
 
 // Auth
 Route::get('/dashboard', fn() => view('pages/dashboard/dashboard'))->middleware(['auth'])->name('dashboard');
-Route::get('/admin/events', [EventController::class, 'index'])->middleware(['auth'])->name('admin.events.index');
+Route::get('/admin/events', [EventController::class, 'index'])->name('admin.events');
+Route::get('/admin/events/data', [EventController::class, 'data'])->name('admin.events.data');
 
 require __DIR__.'/auth.php';

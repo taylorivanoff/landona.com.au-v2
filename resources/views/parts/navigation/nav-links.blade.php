@@ -45,7 +45,7 @@
             Admin
         </x-slot>
         <x-slot:content>
-            <x-nav-link href="{{ route('admin.events.index') }}">Events</x-nav-link>
+            <x-nav-link href="{{ route('admin.events') }}">Events</x-nav-link>
         </x-slot>
     </x-dropdown>
 @endcan
