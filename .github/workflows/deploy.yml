@@ -10,20 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Ensure deployment directory exists
-        run: mkdir -p $GITHUB_WORKSPACE/deployment
-
-      - name: Copy project files to deployment directory
-        run: cp -r $GITHUB_WORKSPACE/* $GITHUB_WORKSPACE/deployment/
-
       - name: Install dependencies
         run: |
-          cd $GITHUB_WORKSPACE/deployment
           composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
       - name: Deploy
         run: |
-          cd $GITHUB_WORKSPACE/deployment
           php artisan migrate --force --seed
           php artisan config:cache
           php artisan route:cache
