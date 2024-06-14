@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\EnquiryController;
-use App\Http\Controllers\FAQController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,12 +22,8 @@ Route::get('/about-us', fn() => view('pages/home/about-us'))->name('about-us');
 Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
 
-
 // Auth
-Route::get('/dashboard', function () {
-    return view('pages/dashboard/dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
+Route::get('/dashboard', fn() => view('pages/dashboard/dashboard'))->middleware(['auth'])->name('dashboard');
+Route::get('/admin/events', [EventController::class, 'index'])->middleware(['auth'])->name('admin.events.index');
 
 require __DIR__.'/auth.php';

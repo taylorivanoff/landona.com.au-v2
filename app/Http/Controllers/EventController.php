@@ -2,67 +2,97 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Models\Event;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        // Filter bots
-        return view('event.index', ['page_views' => Event::selectRaw("COUNT(*) views, attribute page, DATE(created_at) date")->groupBy(['date', 'attribute'])->orderBy('date')
-            ->where('useragent', 'not like', '%bot%')->where('useragent', 'not like', '%python-requests%')->where('useragent', 'not like', '%http%')->where('useragent', 'not like', '%node-fetch%')->where('useragent', 'not like', '%postman%')->where('useragent', 'not like', '%curl%')->get(), 'unique_visitors' => Event::selectRaw("COUNT(DISTINCT visitorid) unique_visitors, DATE(created_at) date")->groupBy(['date'])
-            ->where('useragent', 'not like', '%bot%')->where('useragent', 'not like', '%python-requests%')->where('useragent', 'not like', '%http%')->where('useragent', 'not like', '%node-fetch%')->where('useragent', 'not like', '%postman%')->where('useragent', 'not like', '%curl%')->orderBy('date')->get()]);
+        $range = $request->get('range', 'all_time');
+
+        $pageViewsQuery = Event::selectRaw("COUNT(*) views, attribute page, DATE(created_at) date")
+            ->groupBy(['date', 'attribute'])
+            ->where('useragent', 'not like', '%bot%')
+            ->where('useragent', 'not like', '%python-requests%')
+            ->where('useragent', 'not like', '%http%')
+            ->where('useragent', 'not like', '%node-fetch%')
+            ->where('useragent', 'not like', '%postman%')
+            ->where('useragent', 'not like', '%curl%')
+            ->orderBy('date');
+
+        $uniqueVisitorsQuery = Event::selectRaw("COUNT(DISTINCT visitorid) views, 'unique' as page, DATE(created_at) date")
+            ->groupBy('date')
+            ->where('useragent', 'not like', '%bot%')
+            ->where('useragent', 'not like', '%python-requests%')
+            ->where('useragent', 'not like', '%http%')
+            ->where('useragent', 'not like', '%node-fetch%')
+            ->where('useragent', 'not like', '%postman%')
+            ->where('useragent', 'not like', '%curl%')
+            ->orderBy('date');
+
+        switch ($range) {
+            case 'last_week':
+                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subWeek());
+                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subWeek());
+                break;
+            case 'last_month':
+                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subMonth());
+                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subMonth());
+                break;
+        }
+
+        $pageViews = $pageViewsQuery->get();
+        $uniqueVisitors = $uniqueVisitorsQuery->get();
+
+        return view('pages.dashboard.admin.events', [
+            'page_views' => json_encode($pageViews),
+            'unique_visitors' => json_encode($uniqueVisitors)
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function data(Request $request)
     {
-        //
-    }
+        $range = $request->get('range', 'all_time');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $pageViewsQuery = Event::selectRaw("COUNT(*) views, attribute page, DATE(created_at) date")
+            ->groupBy(['date', 'attribute'])
+            ->where('useragent', 'not like', '%bot%')
+            ->where('useragent', 'not like', '%python-requests%')
+            ->where('useragent', 'not like', '%http%')
+            ->where('useragent', 'not like', '%node-fetch%')
+            ->where('useragent', 'not like', '%postman%')
+            ->where('useragent', 'not like', '%curl%')
+            ->orderBy('date');
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Event $event)
-    {
-        //
-    }
+        $uniqueVisitorsQuery = Event::selectRaw("COUNT(DISTINCT visitorid) views, 'unique' as page, DATE(created_at) date")
+            ->groupBy('date')
+            ->where('useragent', 'not like', '%bot%')
+            ->where('useragent', 'not like', '%python-requests%')
+            ->where('useragent', 'not like', '%http%')
+            ->where('useragent', 'not like', '%node-fetch%')
+            ->where('useragent', 'not like', '%postman%')
+            ->where('useragent', 'not like', '%curl%')
+            ->orderBy('date');
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Event $event)
-    {
-        //
-    }
+        switch ($range) {
+            case 'last_week':
+                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subWeek());
+                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subWeek());
+                break;
+            case 'last_month':
+                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subMonth());
+                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subMonth());
+                break;
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Event $event)
-    {
-        //
-    }
+        $pageViews = $pageViewsQuery->get();
+        $uniqueVisitors = $uniqueVisitorsQuery->get();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Event $event)
-    {
-        //
+        return response()->json([
+            'pageViews' => $pageViews,
+            'uniqueVisitors' => $uniqueVisitors
+        ]);
     }
 }

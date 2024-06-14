@@ -8,9 +8,21 @@
                 </a>
             </div>
 
-            <div class="hidden xl:flex space-x-8 items-center ml-auto shrink-0">
+            <div class="hidden xl:flex space-x-8 items-center ml-8 mr-auto shrink-0">
                 @include('parts/navigation/nav-links')
             </div>
+
+            @auth
+            <div class="hidden xl:flex space-x-8 items-center mr-8 ml-auto shrink-0">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit"
+                            class="inline-flex items-center px-1 pt-1 hover:text-gray-600 focus:outline-none focus:text-blue-900 focus:border-blue-900 transition duration-150 ease-in-out">
+                        Logout
+                    </button>
+                </form>
+            </div>
+            @endauth
 
             <div class="xl:hidden ml-auto mt-2">
                 <button @click="open = !open" class="text-gray-500 hover:text-gray-700 focus:outline-none">

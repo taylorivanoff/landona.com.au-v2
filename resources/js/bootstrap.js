@@ -36,3 +36,6 @@ window.jquery = jquery;
 
 import flatpickr from "flatpickr";
 window.flatpickr = flatpickr;
+
+import Chart from 'chart.js/auto';
+window.Chart = Chart;
