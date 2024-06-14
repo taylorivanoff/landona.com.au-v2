@@ -6,6 +6,7 @@ use App\Models\Event;
 use Closure;
 use Error;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 class LogRequest
