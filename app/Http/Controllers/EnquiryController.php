@@ -41,6 +41,7 @@ class EnquiryController extends Controller
         $enquiry = Enquiry::create($request->all());
 
         Mail::to($this->staff->getEmails())->send(new EnquiryMail($enquiry));
+
         Mail::to($enquiry->email)->send(new ClientEnquiryMail($enquiry));
 
         return redirect()->route('enquiries.create')->with('success', 'Enquiry submitted successfully!');
