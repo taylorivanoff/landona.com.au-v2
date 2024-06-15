@@ -147,10 +147,21 @@
                     instance.set('minTime', "09:00");
                     instance.set('maxTime', "17:00");
                 }
+
+                // Ensure minutes are either :00 or :30
+                if (selectedDate) {
+                    let minutes = selectedDate.getMinutes();
+                    if (minutes !== 0 && minutes !== 30) {
+                        let adjustedMinutes = (minutes < 15) ? 0 : 30;
+                        selectedDate.setMinutes(adjustedMinutes);
+                        instance.setDate(selectedDate, true); // Update the flatpickr instance
+                    }
+                }
             }
         });
     });
 </script>
+
 
 
 
