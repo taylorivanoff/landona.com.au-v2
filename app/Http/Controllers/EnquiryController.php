@@ -24,7 +24,7 @@ class EnquiryController extends Controller
 
     public function create()
     {
-        return view('pages.enquiry.create');
+        return view('models.enquiry.create');
     }
 
     public function store(Request $request)
@@ -69,5 +69,5 @@ class EnquiryController extends Controller
         Mail::to($this->staff->getEmails())->send(new EnquiryMail($enquiry));
         Mail::to($enquiry->email)->send(new ClientEnquiryMail($enquiry));
 
-        return redirect()->route('enquiries.create')->with('success', 'Enquiry submitted successfully!');
+        return redirect()->route('models.enquiries.create')->with('success', 'Enquiry submitted successfully!');
     }}
