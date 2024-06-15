@@ -34,8 +34,10 @@ class EventController extends Controller
 
         switch ($range) {
             case 'today':
-                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subDay());
-                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subDay());
+                $startOfToday = Carbon::today()->startOfDay();
+                $endOfToday = Carbon::today()->endOfDay();
+                $pageViewsQuery->whereBetween('created_at', [$startOfToday, $endOfToday]);
+                $uniqueVisitorsQuery->whereBetween('created_at', [$startOfToday, $endOfToday]);
                 break;
             case 'last_week':
                 $pageViewsQuery->where('created_at', '>=', Carbon::now()->subWeek());
@@ -82,8 +84,10 @@ class EventController extends Controller
 
         switch ($range) {
             case 'today':
-                $pageViewsQuery->where('created_at', '>=', Carbon::now()->subDay());
-                $uniqueVisitorsQuery->where('created_at', '>=', Carbon::now()->subDay());
+                $startOfToday = Carbon::today()->startOfDay();
+                $endOfToday = Carbon::today()->endOfDay();
+                $pageViewsQuery->whereBetween('created_at', [$startOfToday, $endOfToday]);
+                $uniqueVisitorsQuery->whereBetween('created_at', [$startOfToday, $endOfToday]);
                 break;
             case 'last_week':
                 $pageViewsQuery->where('created_at', '>=', Carbon::now()->subWeek());
