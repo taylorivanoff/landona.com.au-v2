@@ -17,7 +17,9 @@
 
     @include('parts/home/pexa')
 
+    @include('parts/home/q-and-a')
+
     @include('parts/home/contact-us')
 
-    @include('parts/home/q-and-a')
+    @include('parts/home/about-us')
 </x-guest-layout>

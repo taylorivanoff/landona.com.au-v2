@@ -3,6 +3,7 @@
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MatterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,17 +19,24 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
+// Routes for guest users
 Route::middleware('guest')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('home');
-    Route::get('/resources', fn() => view('pages/home/resources'))->name('resources');
-    Route::get('/about-us', fn() => view('pages/home/about-us'))->name('about-us');
+    Route::view('/resources', 'pages/home/resources')->name('resources');
     Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
     Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
 });
 
+// Routes for authenticated users
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', fn() => view('pages/dashboard/dashboard'))->middleware(['auth'])->name('dashboard');
-    Route::get('/admin/events', [EventController::class, 'index'])->name('admin.events');
-    Route::get('/admin/events/data', [EventController::class, 'data'])->name('admin.events.data');
+    Route::view('/dashboard', 'pages/dashboard/dashboard')->name('dashboard');
 });
 
+// Routes for admin users
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('matters', MatterController::class);
+    Route::post('matters/{matter}/next-status', [MatterController::class, 'nextStatus'])->name('matters.nextStatus');
+
+    Route::resource('events', EventController::class);
+    Route::get('/events/data', [EventController::class, 'data'])->name('events.data');
+});

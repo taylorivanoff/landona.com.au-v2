@@ -1,5 +1,9 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-     {{ $attributes }} viewBox="0 0 795.81 980.1" fill="#3d3b52">
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     {{ $attributes }}
+     viewBox="0 0 795.81 980.1"
+     fill="#3d3b52"
+>
     <rect x="133.14" y="388.94" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -277.9546 309.2837)" class="st0"
           width="202.44" height="202.44"/>
     <rect x="296.53" y="225.55" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -114.5657 376.9626)" class="st0"
