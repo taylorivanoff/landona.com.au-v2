@@ -24,9 +24,9 @@
 
     <x-nav-link href="{{ route('home') }}#pexa">PEXA</x-nav-link>
 
-    <x-nav-link href="{{ route('home') }}#contact-us">Contact Us</x-nav-link>
-
     <x-nav-link href="{{ route('home') }}#questions-and-answers">Q & A</x-nav-link>
+
+    <x-nav-link href="{{ route('home') }}#contact-us">Contact Us</x-nav-link>
 
     <x-nav-link href="{{ route('resources') }}">Resources</x-nav-link>
 

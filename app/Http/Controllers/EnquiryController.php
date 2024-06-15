@@ -20,9 +20,7 @@ class EnquiryController extends Controller
 
     public function create()
     {
-        $timeslots = \App\Models\Enquiry::generateTimeslots();
-
-        return view('pages/enquiry/create', compact('timeslots'));
+        return view('pages/enquiry/create');
     }
 
     public function store(Request $request)
