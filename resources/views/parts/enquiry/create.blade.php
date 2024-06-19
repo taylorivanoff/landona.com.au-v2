@@ -1,8 +1,10 @@
 <x-section>
     <x-h type="h2" class="">Submit an Enquiry</x-h>
+
     <x-p>
         We appreciate you taking the time to get in touch with us. Here’s what happens next:
     </x-p>
+
     <x-ol>
         <li class="mb-2"><strong>Submission Confirmation:</strong><br>You will receive a confirmation email shortly to
             acknowledge that we have received your enquiry.
@@ -58,9 +60,6 @@
             <x-input type="text" id="last_name" name="last_name" required/>
         </div>
 
-        <div class="space-y-2">
-
-        </div>
         <x-label for="email">Email</x-label>
         <x-input type="email" id="email" name="email" required/>
 
@@ -102,6 +101,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const currentHour = now.getHours();
+
         let minDate = new Date();
         let minTimeToday = "09:00";
 
@@ -126,7 +126,7 @@
             enableTime: true,
             dateFormat: "l, d F Y at H:i K",
             minDate: minDate,
-            maxDate: maxDate,
+            maxDate: new Date().fp_incr(14), // 14 days from now
             defaultDate: minDate,
             defaultHour: 9,
             defaultMinute: 0,
@@ -138,6 +138,26 @@
             ],
             time_24hr: false, // 12-hour format
             minuteIncrement: 30,
+            onReady: function(selectedDates, dateStr, instance) {
+                const selectedDate = selectedDates[0];
+                if (selectedDate && selectedDate.toDateString() === now.toDateString()) {
+                    instance.set('minTime', minTimeToday);
+                    instance.set('maxTime', "17:00");
+                } else {
+                    instance.set('minTime', "09:00");
+                    instance.set('maxTime', "17:00");
+                }
+
+                // Ensure minutes are either :00 or :30
+                if (selectedDate) {
+                    let minutes = selectedDate.getMinutes();
+                    if (minutes !== 0 && minutes !== 30) {
+                        let adjustedMinutes = (minutes < 15) ? 0 : 30;
+                        selectedDate.setMinutes(adjustedMinutes);
+                        instance.setDate(selectedDate, true); // Update the flatpickr instance
+                    }
+                }
+            },
             onChange: function(selectedDates, dateStr, instance) {
                 const selectedDate = selectedDates[0];
                 if (selectedDate && selectedDate.toDateString() === now.toDateString()) {
@@ -162,11 +182,6 @@
     });
 </script>
 
-
-
-
-
-
 <x-section>
     <x-h type="h2" class="font-semibold text-blue-600 mb-2">How to Ensure You Receive Our Response</x-h>
     <x-ul>
@@ -190,5 +205,3 @@
         Thank you for choosing us. We look forward to assisting you!
     </x-p>
 </x-section>
-
-

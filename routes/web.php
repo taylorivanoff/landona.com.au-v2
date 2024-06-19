@@ -23,8 +23,7 @@ require __DIR__ . '/auth.php';
 Route::middleware('guest')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('home');
     Route::view('/resources', 'pages/home/resources')->name('resources');
-    Route::get('/enquiry', [EnquiryController::class, 'create'])->name('enquiries.create');
-    Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiries.store');
+    Route::resource('/enquiries', EnquiryController::class);
 });
 
 // Routes for authenticated users
