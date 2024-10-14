@@ -2,7 +2,7 @@
      xmlns="http://www.w3.org/2000/svg"
      {{ $attributes }}
      viewBox="0 0 795.81 980.1"
-     fill="#3d3b52"
+     fill="#1f2937"
 >
     <rect x="133.14" y="388.94" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -277.9546 309.2837)" class="st0"
           width="202.44" height="202.44"/>

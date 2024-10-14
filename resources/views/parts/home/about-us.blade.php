@@ -1,6 +1,6 @@
 <div id="about-us" class="py-32">
     <div class="flex flex-col items-center space-y-12">
-        <x-h type="h1">About Us</x-h>
+        <x-h type="h1">Our Team</x-h>
         <div class="text-left max-w-3xl mx-auto py-8 space-y-8">
             <h3 class="font-serif text-xl">Our Story</h3>
             <x-p>
@@ -8,11 +8,9 @@
             </x-p>
 
             <h3 class="font-serif text-xl">Our Values</h3>
-            <x-ul class="list-disc">
-                <li><strong>Integrity</strong>: We uphold the highest standards of integrity in all our actions, ensuring transparency and honesty in every transaction.</li>
-                <li><strong>Commitment</strong>: We are dedicated to providing excellent service and ensuring client satisfaction. Your needs are our top priority, and we go above and beyond to meet them.</li>
-                <li><strong>Innovation</strong>: We embrace new technologies and innovative solutions to continuously improve our services. Our use of digital platforms like PEXA ensures efficient and secure property transfers.</li>
-            </x-ul>
+                <x-p><strong>Integrity</strong>: We uphold the highest standards of integrity in all our actions, ensuring transparency and honesty in every transaction.</x-p>
+                <p><strong>Commitment</strong>: We are dedicated to providing excellent service and ensuring client satisfaction. Your needs are our top priority, and we go above and beyond to meet them.</p>
+                <p><strong>Innovation</strong>: We embrace new technologies and innovative solutions to continuously improve our services. Our use of digital platforms like PEXA ensures efficient and secure property transfers.</p>
 
             {{--                <h3 class="font-serif text-xl">Meet the Team</h3>--}}
             {{--                <x-p>--}}

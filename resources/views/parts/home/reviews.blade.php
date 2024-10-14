@@ -1,5 +1,5 @@
 <x-section  id="google-reviews">
-    <x-h type="h1">Google Reviews</x-h>
+    <x-h type="h1">Verified Google Reviews</x-h>
 
     <div class="text-yellow-400 text-center text-3xl">
         &starf; &starf; &starf; &starf; &starf;

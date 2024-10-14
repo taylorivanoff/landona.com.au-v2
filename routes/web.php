@@ -22,6 +22,15 @@ require __DIR__ . '/auth.php';
 // Routes for guest users
 Route::middleware('guest')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('home');
+
+    Route::view('/services', 'pages/home/about-us')->name('services');
+    Route::view('/buying', 'pages/home/about-us')->name('about');
+    Route::view('/selling', 'pages/home/about-us')->name('about');
+    Route::view('/contract-review', 'pages/home/about-us')->name('about');
+    Route::view('/title-transfer', 'pages/home/about-us')->name('about');
+
+
+    Route::view('/about', 'pages/home/about-us')->name('about');
     Route::view('/resources', 'pages/home/resources')->name('resources');
     Route::resource('/enquiries', EnquiryController::class);
 });

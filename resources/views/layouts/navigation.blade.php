@@ -1,14 +1,14 @@
-<nav class="bg-white border-b border-gray-100 fixed w-full z-10" x-data="{ open: false }">
+<nav class="w-full z-10" x-data="{ open: false }">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 justify-between items-center">
+        <div class="flex h-24 justify-between items-center">
             <div class="flex items-center">
-                <a class="flex items-center hover:text-blue-900 transition duration-150" href="{{ route('home') }}">
+                <a class="flex items-center transition duration-150 hover:text-orange-600" href="{{ route('home') }}">
                     <x-application-logo class="block h-10 w-auto"/>
-                    <h1 class="block lg:hidden font-bold tracking-tight ml-3">Landona Conveyancing</h1>
+                    <h1 class="font-bold tracking-tight ml-3">Landona Conveyancing</h1>
                 </a>
             </div>
 
-            <div class="hidden xl:flex space-x-8 items-center ml-8 mr-auto shrink-0">
+            <div class="hidden xl:flex space-x-8 items-center ml-8 ml-auto shrink-0">
                 @include('parts/navigation/nav-links')
             </div>
 
