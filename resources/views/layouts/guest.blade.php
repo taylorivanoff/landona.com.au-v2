@@ -7,6 +7,14 @@
     <title>@yield('title') - {{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <!-- Google tag (gtag.js) -->
+    <script async src=https://www.googletagmanager.com/gtag/js?id=G-ZXLK437JYZ></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZXLK437JYZ');
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased">
